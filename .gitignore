@@ -221,8 +221,5 @@ scratch/
 NOTES.private.md
 TODO.private.md
 
-# IDA Pro installers and keygens (too large for GitHub, local only)
-reverse-engineering-tools/IDA_Pro_9.2.250908/installers/
-reverse-engineering-tools/IDA_Pro_9.2.250908/keygens_patchers/
-reverse-engineering-tools/IDA_Pro_9.2.250908/misc/
-reverse-engineering-tools/IDA_Pro_9.2.250908/nfo/
+# IDA Pro binaries (obtain from official sources, local install: /opt/software/IDA_Pro_9.2.250908)
+reverse-engineering-tools/IDA_Pro_9.2.250908/

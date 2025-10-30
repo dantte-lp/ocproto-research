@@ -47,7 +47,7 @@ This research is conducted under **17 U.S.C. § 1201(f) - Reverse Engineering** 
 
 ## 🛠️ Methodology
 
-See [docs/methodology.md](docs/methodology.md) for complete reverse engineering methodology.
+See [Reverse Engineering Guidelines](https://docs.wolfguard.io/docs/cisco-secure-client/reverse-engineering-guidelines) for complete methodology (Russian).
 
 ### Tools Used
 
@@ -134,23 +134,21 @@ python3 /workspace/scripts/binary-catalog.py /workspace/binaries/
 
 ## 📖 Documentation
 
+> **Comprehensive Guides**: Visit [docs.wolfguard.io/docs/cisco-secure-client/](https://docs.wolfguard.io/docs/cisco-secure-client/) for detailed documentation including:
+> - [Reverse Engineering Guidelines](https://docs.wolfguard.io/docs/cisco-secure-client/reverse-engineering-guidelines) (Russian)
+> - [Version Comparison Analysis](https://docs.wolfguard.io/docs/cisco-secure-client/version-comparison) (TLS 1.3, DTLS 1.2, Post-Quantum Crypto)
+> - Platform-specific analysis (Windows, Linux, macOS)
+
 ### Analysis Documentation
 
 - **[Binary Inventory](analysis/BINARY_INVENTORY.md)** - 72 files across 4 versions
-- **[Version Comparison](analysis/version-comparison/)** - Multi-version analysis (in progress)
 - **[5.1 Analysis](analysis/5.1/)** - Latest version (85% complete)
-
-### Methodology Documentation
-
-- **[RE Methodology](docs/methodology.md)** - 6-phase systematic approach
-- **[Tool Guide](docs/tools.md)** - IDA Pro, Ghidra, radare2 usage
-- **[Legal Compliance](docs/legal-compliance.md)** - DMCA §1201(f) details
 
 ### Analysis Plans
 
-- **[Predeploy Analysis Plan](analysis/ANALYSIS_PLAN_PREDEPLOY.md)** - Standalone installers
-- **[Webdeploy Analysis Plan](analysis/ANALYSIS_PLAN_WEBDEPLOY.md)** - Server-side deployment
-- **[Utils Analysis Plan](analysis/ANALYSIS_PLAN_UTILS.md)** - Profile Editor, VPN API
+- **[Predeploy Analysis Plan](analysis/ANALYSIS_PLAN_PREDEPLOY.md)** - Standalone installers (6 weeks, 240 hours)
+- **[Webdeploy Analysis Plan](analysis/ANALYSIS_PLAN_WEBDEPLOY.md)** - Server-side deployment (4 weeks, 160 hours)
+- **[Utils Analysis Plan](analysis/ANALYSIS_PLAN_UTILS.md)** - Profile Editor, VPN API (7 weeks, 280 hours)
 
 ## 📊 Progress Tracking
 

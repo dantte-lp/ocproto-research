@@ -12,6 +12,8 @@ Modern container-based reverse engineering environment using **Buildah**, **Podm
 
 This containerized environment provides a comprehensive toolkit for analyzing Cisco Secure Client binaries across multiple versions (4.9, 4.10, 5.0, 5.1).
 
+> **Note**: Proprietary tools (IDA Pro) are NOT included in this repository. Install separately and mount from `/opt/software/IDA_Pro_9.2.250908/` as documented below.
+
 ### Tools Included
 
 | Tool | Version | Purpose |
@@ -54,7 +56,7 @@ sudo dnf install -y buildah podman podman-compose skopeo
 ### 1. Build Container
 
 ```bash
-cd /opt/projects/repositories/cisco-secure-client/reverse-engineering-tools
+cd /opt/projects/repositories/ocproto-research/reverse-engineering-tools
 make build
 ```
 
