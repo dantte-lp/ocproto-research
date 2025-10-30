@@ -47,7 +47,7 @@ This research is conducted under **17 U.S.C. § 1201(f) - Reverse Engineering** 
 
 ## 🛠️ Methodology
 
-See [Reverse Engineering Guidelines](https://docs.wolfguard.io/docs/cisco-secure-client/reverse-engineering-guidelines) for complete methodology (Russian).
+This project follows systematic reverse engineering methodology for protocol analysis and interoperability research under DMCA §1201(f).
 
 ### Tools Used
 
@@ -116,7 +116,7 @@ ocproto-research/
 
 ```bash
 # Clone repository
-git clone https://github.com/YOUR-ORG/ocproto-research.git
+git clone https://github.com/dantte-lp/ocproto-research.git
 cd ocproto-research
 
 # Place your binaries (not tracked by git)
@@ -134,10 +134,14 @@ python3 /workspace/scripts/binary-catalog.py /workspace/binaries/
 
 ## 📖 Documentation
 
-> **Comprehensive Guides**: Visit [docs.wolfguard.io/docs/cisco-secure-client/](https://docs.wolfguard.io/docs/cisco-secure-client/) for detailed documentation including:
-> - [Reverse Engineering Guidelines](https://docs.wolfguard.io/docs/cisco-secure-client/reverse-engineering-guidelines) (Russian)
+> **Protocol Specifications**: Visit [docs.wolfguard.io/docs/openconnect-protocol/](https://docs.wolfguard.io/docs/openconnect-protocol/) for comprehensive OpenConnect protocol documentation including:
+> - [Protocol Specifications](https://docs.wolfguard.io/docs/openconnect-protocol/protocol/) - CSTP, DTLS, authentication flows
+> - [Protocol Analysis](https://docs.wolfguard.io/docs/openconnect-protocol/analysis/) - Binary analysis methodology
+> - [Protocol Reference](https://docs.wolfguard.io/docs/openconnect-protocol/reference/) - Technical specifications
+>
+> **Cisco Secure Client Analysis**: Visit [docs.wolfguard.io/docs/cisco-secure-client/](https://docs.wolfguard.io/docs/cisco-secure-client/) for:
 > - [Version Comparison Analysis](https://docs.wolfguard.io/docs/cisco-secure-client/version-comparison) (TLS 1.3, DTLS 1.2, Post-Quantum Crypto)
-> - Platform-specific analysis (Windows, Linux, macOS)
+> - Platform-specific analysis (4.9, 4.10, 5.0, 5.1)
 
 ### Analysis Documentation
 
@@ -153,9 +157,9 @@ python3 /workspace/scripts/binary-catalog.py /workspace/binaries/
 ## 📊 Progress Tracking
 
 Track analysis progress via:
-- **[GitHub Issues](https://github.com/YOUR-ORG/ocproto-research/issues)** - Individual analysis tasks
-- **[Milestones](https://github.com/YOUR-ORG/ocproto-research/milestones)** - Major phases
-- **[Project Board](https://github.com/YOUR-ORG/ocproto-research/projects/1)** - Kanban view
+- **[GitHub Issues](https://github.com/dantte-lp/ocproto-research/issues)** - Individual analysis tasks
+- **[Milestones](https://github.com/dantte-lp/ocproto-research/milestones)** - Major phases
+- **[Project Board](https://github.com/dantte-lp/ocproto-research/projects/1)** - Kanban view (requires setup)
 
 ### Current Milestones
 
@@ -185,7 +189,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ## 🔗 Related Projects
 
-- **[WolfGuard](https://github.com/YOUR-ORG/wolfguard)** - Open-source VPN server (implementation)
+- **[WolfGuard](https://github.com/dantte-lp/wolfguard)** - Open-source VPN server (implementation)
 - **[WolfGuard Docs](https://docs.wolfguard.io)** - Documentation site
 - **[OpenConnect](https://www.infradead.org/openconnect/)** - Open-source VPN client
 - **[ocserv](https://gitlab.com/ocserv/ocserv)** - OpenConnect server (original)
@@ -217,4 +221,4 @@ This research is conducted exclusively for interoperability purposes under 17 U.
 
 **Maintained by**: WolfGuard Project Team
 **Documentation**: https://docs.wolfguard.io
-**Contact**: [Create an issue](https://github.com/YOUR-ORG/ocproto-research/issues/new)
+**Contact**: [Create an issue](https://github.com/dantte-lp/ocproto-research/issues/new)
