@@ -1,0 +1,63 @@
+4http://crl3.digicert.com/DigiCertAssuredIDRootCA.crl0O
+4http://crl4.digicert.com/DigiCertAssuredIDRootCA.crl0:
+7http://cacerts.digicert.com/DigiCertAssuredIDRootCA.crt0
+acwebhelper.cookies.sqlite
+An authenticating proxy has been detected.  Always On does not support connecting via a proxy.
+An authentication error occurred for network '%s'. Please try again.  If the issue persists, contact your administrator.
+Associating
+Bhttp://cacerts.digicert.com/DigiCertSHA2AssuredIDCodeSigningCA.crt0
+browse_for_cookie
+Cannot relaunch process with privileges when the BypassDownloader setting is enabled in the AnyConnectLocalPolicy.xml file.
+Cisco Secure Client must verify that all loaded components have been certified by Cisco. Your system does not have the latest root certificates from Verisign, which are required to validate the authenticity of the software. Please download VeriSign Class 3 Public Primary Certification Authority - G5 from http://www.verisign.com/support/roots.html or contact your administrator.
+Connected to secure gateway via https proxy server
+CONNECTIFC_ERROR_PROXY_AUTH_REQUIRED:The client must first authenticate itself with the proxy.
+CONNECTMGR_ERROR_INVALID_SSO_LOGIN_URL:Failed to parse single sign-on login url in aggauth for saml sso
+CONNECTMGR_ERROR_NO_CLIENT_AUTH_CERT_AVAILABLE:First certificate for multiple certificate authentication not found
+CONNECTMGR_ERROR_PARSING_CONFIG_XML:Failed to parse aggregate config xml.
+CONNECTMGR_ERROR_USER_REJECTED_BANNER:User rejected the post-login banner: terminate the VPN session
+cookie_value
+DNLDRARGS_ERROR_PARSING_CONFIG_XML:Failed to parse aggregate config xml.
+DOWNLOADERMAJOR_ERROR_GET_CONFIG_AGGAUTH_UNSUPPORTED:Could not get aggregate authentication configuration because it is not supported by the secure gateway
+DOWNLOADERMAJOR_ERROR_PROXY_AUTH_FAILED:Could not authentication to the proxy
+error_cookie
+error_cookie_name
+For help and support please visit https://www.immunet.com
+Host not found (authoritative)
+Host not found (non-authoritative), try again later
+http://
+/http://crl3.digicert.com/sha2-assured-cs-g1.crl05
+/http://crl4.digicert.com/sha2-assured-cs-g1.crl0K
+http://ocsp.digicert.com0C
+http://ocsp.digicert.com0N
+https://
+https://www.digicert.com/CPS0
+http://www.digicert.com/CPS0
+IPSECPROTOCOL_ERROR_AUTH_IKE_PSK_NOT_SUPPORTED:Preshared key authentication is not supported
+IPSECPROTOCOL_ERROR_NO_SESSION_TOKEN:Tunnel configuration does not contain a session token
+IPSECPROTOCOL_ERROR_USER_REJECTED_BANNER:user clicked Disconnect on post-auth banner
+IPSECTUNNELSTATEMGR_ERROR_PREAUTH_FAILURE:IPsec tunnel termination due to pre-authentication failure
+ Local auth method: %s
+login information loaded
+N5boost9algorithm6detail13token_finderFINS1_10is_any_ofFIcEEEE
+NETENVIRONMENT_ERROR_WEBKIT_PROCESS_DETECT_FAILURE:Failure to detect the macOS WebKit process associated with the web browser
+Not performing update check because it is disabled via the BypassDownloader setting in the AnyConnectLocalPolicy.xml file.
+Password change authentication channel setup failed.
+ Remote auth method: %s
+SDIMGR_ERROR_UNEXPECTED_SOFTOKEN_AUTH_CHALLENGE:Only a single authentication challenge is ever expected for SafeWord SofToken.
+soup_cookie_free
+soup_cookie_get_name
+soup_cookie_get_value
+success_with_cookie
+The "Cisco Secure Client - Certificate Selection" dialog did not return an authentication certificate. It is likely that the user clicked the cancel button.
+The connection proxy settings for internet browser are ignored because the connection is not associated with a user logon.
+The query is valid, but it does not have associated data
+The signing certificate authority is not known. 
+Unable to get cookie from cookie manager.
+Unable to get cookies from cookie manager. %s
+vpn_saml
+webkit_cookie_manager_get_cookies
+webkit_cookie_manager_get_cookies_finish
+webkit_cookie_manager_set_accept_policy
+webkit_cookie_manager_set_persistent_storage
+webkit_uri_response_get_http_headers
+webkit_web_context_get_cookie_manager

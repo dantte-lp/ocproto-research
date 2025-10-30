@@ -1,0 +1,146 @@
+# Containerfile - Modern Container Build for Buildah/Podman
+# Comprehensive reverse engineering environment for Cisco Secure Client analysis
+# Tools: IDA Pro (mounted), Ghidra, Reko, angr, radare2
+
+FROM registry.access.redhat.com/ubi9/ubi:latest
+
+LABEL org.opencontainers.image.title="Cisco RE Tools" \
+      org.opencontainers.image.description="Reverse Engineering toolkit for Cisco Secure Client multi-version analysis" \
+      org.opencontainers.image.authors="WolfGuard Project" \
+      org.opencontainers.image.version="2.0" \
+      org.opencontainers.image.created="2025-10-30"
+
+# Install system dependencies
+RUN dnf install -y \
+    # Java for Ghidra
+    java-21-openjdk-devel \
+    java-21-openjdk-headless \
+    # Python for angr and scripting
+    python3.12 \
+    python3.12-pip \
+    python3.12-devel \
+    # Build tools
+    gcc \
+    gcc-c++ \
+    make \
+    cmake \
+    git \
+    wget \
+    curl \
+    unzip \
+    tar \
+    # Binary analysis tools
+    binutils \
+    file \
+    strace \
+    ltrace \
+    gdb \
+    valgrind \
+    # Network tools
+    tcpdump \
+    nmap-ncat \
+    # Text processing
+    vim \
+    nano \
+    less \
+    grep \
+    sed \
+    gawk \
+    jq \
+    # Other utilities
+    tree \
+    findutils \
+    which \
+    procps-ng \
+    diffutils \
+    && dnf clean all \
+    && rm -rf /var/cache/dnf
+
+# Create workspace structure
+WORKDIR /workspace
+RUN mkdir -p /tools /workspace/analysis /workspace/binaries /workspace/output /workspace/scripts
+
+# Install Ghidra 11.3
+ENV GHIDRA_VERSION=11.3_PUBLIC_20250115
+RUN cd /tools && \
+    wget -q https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_11.3_build/ghidra_${GHIDRA_VERSION}.zip && \
+    unzip -q ghidra_${GHIDRA_VERSION}.zip && \
+    rm ghidra_${GHIDRA_VERSION}.zip && \
+    ln -s /tools/ghidra_${GHIDRA_VERSION} /tools/ghidra && \
+    chmod +x /tools/ghidra/ghidraRun && \
+    chmod +x /tools/ghidra/support/analyzeHeadless
+
+# Add Ghidra to PATH
+ENV PATH="/tools/ghidra:${PATH}"
+ENV GHIDRA_INSTALL_DIR="/tools/ghidra"
+
+# Install angr (symbolic execution framework)
+RUN python3.12 -m pip install --no-cache-dir \
+    angr==9.2.142 \
+    capstone \
+    unicorn \
+    pwntools \
+    ropper \
+    z3-solver \
+    cle \
+    archinfo \
+    pyvex
+
+# Install radare2 from source (latest stable)
+RUN cd /tmp && \
+    git clone --depth 1 --branch 5.9.4 https://github.com/radareorg/radare2 && \
+    cd radare2 && \
+    sys/install.sh && \
+    cd / && rm -rf /tmp/radare2
+
+# Install additional Python tools for analysis
+RUN python3.12 -m pip install --no-cache-dir \
+    lief \
+    pyelftools \
+    pefile \
+    intervaltree \
+    networkx \
+    matplotlib \
+    pandas \
+    numpy \
+    requests
+
+# Set up environment variables
+ENV JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+ENV PYTHONPATH=/usr/local/lib/python3.12/site-packages
+ENV LANG=en_US.UTF-8
+ENV LC_ALL=en_US.UTF-8
+
+# Create analyst user (non-root for security)
+RUN useradd -m -s /bin/bash -u 1000 analyst && \
+    chown -R analyst:analyst /workspace /tools
+
+# IDA Pro installation directory (to be mounted from host)
+# Mount: -v /opt/software/IDA_Pro_9.2.250908:/opt/ida:ro
+ENV IDA_HOME=/opt/ida
+ENV PATH="/opt/ida:${PATH}"
+
+# Switch to analyst user
+USER analyst
+WORKDIR /workspace
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
+    CMD test -d /tools/ghidra && test -x /usr/local/bin/radare2 || exit 1
+
+# Default command: keep container alive for interactive work
+CMD ["/bin/bash", "-c", "tail -f /dev/null"]
+
+# Build instructions:
+# buildah bud -t localhost/cisco-re-tools:latest -f Containerfile .
+#
+# Push to registry:
+# skopeo copy containers-storage:localhost/cisco-re-tools:latest \
+#     docker://registry.example.com/cisco-re-tools:latest
+#
+# Run:
+# podman run -it --rm \
+#   -v /opt/projects/repositories/cisco-secure-client/binaries:/workspace/binaries:ro \
+#   -v /opt/projects/repositories/cisco-secure-client/analysis:/workspace/analysis:rw \
+#   -v /opt/software/IDA_Pro_9.2.250908:/opt/ida:ro \
+#   localhost/cisco-re-tools:latest /bin/bash

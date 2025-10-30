@@ -1,0 +1,152 @@
+# Compose Specification v3 - Modern Podman/Docker Compose
+# https://github.com/compose-spec/compose-spec/blob/main/spec.md
+
+name: cisco-re-tools
+
+services:
+  re-workspace:
+    build:
+      context: .
+      dockerfile: Containerfile
+    image: localhost/cisco-re-tools:latest
+    container_name: cisco-re-workspace
+    hostname: re-workspace
+
+    # Security configuration
+    security_opt:
+      - label=disable  # SELinux label (adjust per environment)
+    cap_add:
+      - SYS_PTRACE  # Required for gdb/strace debugging
+    cap_drop:
+      - ALL  # Drop all caps except explicitly added
+    read_only: false  # Allow writes to /workspace
+
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'
+          memory: 8G
+        reservations:
+          cpus: '2.0'
+          memory: 4G
+
+    # Volume mounts
+    volumes:
+      # Cisco binaries (multi-version) - read-only
+      - type: bind
+        source: ../binaries
+        target: /workspace/binaries
+        read_only: true
+        bind:
+          propagation: private
+
+      # Analysis workspace - read-write
+      - type: bind
+        source: ../analysis
+        target: /workspace/analysis
+        read_only: false
+        bind:
+          propagation: private
+
+      # IDA Pro installation - read-only (mount from host)
+      - type: bind
+        source: /opt/software/IDA_Pro_9.2.250908
+        target: /opt/ida
+        read_only: true
+        bind:
+          propagation: private
+
+      # Output directory - read-write
+      - type: volume
+        source: re-output
+        target: /workspace/output
+
+      # Ghidra projects - persistent volume
+      - type: volume
+        source: ghidra-projects
+        target: /workspace/ghidra-projects
+
+      # Analysis scripts - read-only
+      - type: bind
+        source: ./scripts
+        target: /workspace/scripts
+        read_only: true
+        bind:
+          propagation: private
+
+    # Environment variables
+    environment:
+      # Tool paths
+      GHIDRA_INSTALL_DIR: /tools/ghidra
+      IDA_HOME: /opt/ida
+
+      # Java configuration
+      JAVA_HOME: /usr/lib/jvm/java-21-openjdk
+      _JAVA_OPTIONS: "-Xmx4g -Xms2g"
+
+      # Python configuration
+      PYTHONPATH: /usr/local/lib/python3.12/site-packages
+      PYTHONUNBUFFERED: "1"
+
+      # Locale
+      LANG: en_US.UTF-8
+      LC_ALL: en_US.UTF-8
+
+      # Project metadata
+      PROJECT_NAME: "WolfGuard Cisco RE"
+      ANALYSIS_VERSION: "multi-version"
+
+    # Working directory
+    working_dir: /workspace
+
+    # Keep container running (interactive mode)
+    command: ["tail", "-f", "/dev/null"]
+
+    # Restart policy
+    restart: unless-stopped
+
+    # Networks
+    networks:
+      - analysis-net
+
+    # Logging
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+# Named volumes (persistent storage)
+volumes:
+  re-output:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./output
+
+  ghidra-projects:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./ghidra-projects
+
+# Networks
+networks:
+  analysis-net:
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.name: "br-cisco-re"
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.0.0/24
+          gateway: 172.28.0.1
+
+# Usage:
+# Start: podman-compose -f compose.yaml up -d
+# Shell: podman exec -it cisco-re-workspace /bin/bash
+# Stop: podman-compose -f compose.yaml down
+# Logs: podman-compose -f compose.yaml logs -f re-workspace

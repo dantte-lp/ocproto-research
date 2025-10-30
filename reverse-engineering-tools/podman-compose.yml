@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  reverse-engineering:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cisco-re-tools
+    hostname: re-tools
+    restart: unless-stopped
+
+    # Security
+    security_opt:
+      - label=disable
+    cap_add:
+      - SYS_PTRACE  # For debugging
+
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'
+          memory: 8G
+        reservations:
+          cpus: '2.0'
+          memory: 4G
+
+    # Volumes
+    volumes:
+      # Cisco binaries (read-only)
+      - ../5.1.2.42:/binaries/5.1.2.42:ro
+      - ../5.1.12.146:/binaries/5.1.12.146:ro
+      - ../cisco-secure-client-linux64-5.1.2.42:/binaries/extracted/5.1.2.42:ro
+
+      # Analysis workspace (read-write)
+      - ../analysis:/analysis:rw
+      - ../decompiled:/decompiled:rw
+
+      # Ghidra projects
+      - ./ghidra-projects:/workspace/ghidra-projects:rw
+
+      # Analysis scripts
+      - ./scripts:/workspace/scripts:rw
+
+      # Output directory
+      - ./output:/output:rw
+
+    # Environment variables
+    environment:
+      - GHIDRA_INSTALL_DIR=/tools/ghidra
+      - JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+      - PYTHONPATH=/usr/local/lib/python3.12/site-packages
+      - DISPLAY=:0  # For GUI tools (if X11 forwarding)
+
+    # Keep container running
+    command: tail -f /dev/null
+
+    networks:
+      - analysis-net
+
+networks:
+  analysis-net:
+    driver: bridge

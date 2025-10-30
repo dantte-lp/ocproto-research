@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnyConnectProfile xmlns="http://schemas.xmlsoap.org/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/encoding/ AnyConnectProfile.xsd">
+	<ClientInitialization>
+		<UseStartBeforeLogon UserControllable="true">true</UseStartBeforeLogon>
+		<AutomaticCertSelection UserControllable="false">false</AutomaticCertSelection>
+		<ShowPreConnectMessage>true</ShowPreConnectMessage>
+		<CertificateStore>User</CertificateStore>
+		<CertificateStoreMac>Login</CertificateStoreMac>
+		<CertificateStoreLinux>User</CertificateStoreLinux>
+		<CertificateStoreOverride>true</CertificateStoreOverride>
+		<ProxySettings>Native</ProxySettings>
+		<AllowLocalProxyConnections>false</AllowLocalProxyConnections>
+		<AuthenticationTimeout>30</AuthenticationTimeout>
+		<AutoConnectOnStart UserControllable="false">true</AutoConnectOnStart>
+		<MinimizeOnConnect UserControllable="false">true</MinimizeOnConnect>
+		<LocalLanAccess UserControllable="false">true</LocalLanAccess>
+		<DisableCaptivePortalDetection UserControllable="false">true</DisableCaptivePortalDetection>
+		<ClearSmartcardPin UserControllable="false">true</ClearSmartcardPin>
+		<IPProtocolSupport>IPv4,IPv6</IPProtocolSupport>
+		<AutoReconnect UserControllable="false">true
+			<AutoReconnectBehavior UserControllable="false">ReconnectAfterResume</AutoReconnectBehavior>
+		</AutoReconnect>
+		<SuspendOnConnectedStandby>true</SuspendOnConnectedStandby>
+		<AutoUpdate UserControllable="false">true</AutoUpdate>
+		<RSASecurIDIntegration UserControllable="false">SoftwareToken</RSASecurIDIntegration>
+		<WindowsLogonEnforcement>SingleLogon</WindowsLogonEnforcement>
+		<LinuxLogonEnforcement>SingleLogon</LinuxLogonEnforcement>
+		<WindowsVPNEstablishment>LocalUsersOnly</WindowsVPNEstablishment>
+		<LinuxVPNEstablishment>LocalUsersOnly</LinuxVPNEstablishment>
+		<AutomaticVPNPolicy>false</AutomaticVPNPolicy>
+		<PPPExclusion UserControllable="false">Disable
+			<PPPExclusionServerIP UserControllable="false"></PPPExclusionServerIP>
+		</PPPExclusion>
+		<EnableScripting UserControllable="false">false</EnableScripting>
+		<EnableAutomaticServerSelection UserControllable="false">true
+			<AutoServerSelectionImprovement>20</AutoServerSelectionImprovement>
+			<AutoServerSelectionSuspendTime>4</AutoServerSelectionSuspendTime>
+		</EnableAutomaticServerSelection>
+		<RetainVpnOnLogoff>false
+		</RetainVpnOnLogoff>
+		<CaptivePortalRemediationBrowserFailover>false</CaptivePortalRemediationBrowserFailover>
+		<AllowManualHostInput>true</AllowManualHostInput>
+	</ClientInitialization>
+	<ServerList>
+		<HostEntry>
+			<HostName>vpn.example.com</HostName>
+			<HostAddress>server1.example.com</HostAddress>
+			<UserGroup>users</UserGroup>
+			<MobileHostEntryInfo>
+				<CertificatePolicy>Auto</CertificatePolicy>
+				<ConnectOnDemand>false</ConnectOnDemand>
+				<ActivateOnImport>false</ActivateOnImport>
+			</MobileHostEntryInfo>
+		</HostEntry>
+	</ServerList>
+</AnyConnectProfile>

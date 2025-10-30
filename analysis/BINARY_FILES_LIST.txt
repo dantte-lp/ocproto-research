@@ -1,0 +1,92 @@
+ 33716431  55736 -rw-r--r--   1 root     root     57069661 Oct 29 16:36 ./android/anyconnect-android-5.1.9.115-release.apk
+   358520 124428 -rw-r--r--   1 root     root     127410241 Oct 30 21:25 ./4.10.08029/hostscan_4.10.08029-k9.pkg
+   358521 146572 -rw-r--r--   1 root     root     150085706 Oct 30 21:25 ./4.10.08029/anyconnect-win-4.10.08029-vpnapi.zip
+   358522  77876 -rw-r--r--   1 root     root      79741701 Oct 30 21:25 ./4.10.08029/anyconnect-macos-4.10.08029-predeploy-k9.dmg
+   358523  72788 -rw-r--r--   1 root     root      74532826 Oct 30 21:25 ./4.10.08029/anyconnect-win-4.10.08029-predeploy-k9.zip
+   358527  11212 -rw-r--r--   1 root     root      11477619 Oct 30 21:24 ./4.10.08029/anyconnect-linux64-4.10.08029-vpnapi.tar.gz
+   356869  58144 -rw-r--r--   1 root     root      59536033 Oct 30 21:24 ./4.10.08029/anyconnect-macos-4.10.08029-vpnapi.tar.gz
+   356871  35684 -rw-r--r--   1 root     root      36539821 Oct 30 21:24 ./4.10.08029/anyconnect-linux64-4.10.08029-predeploy-k9.tar.gz
+   354597      8 -rw-r--r--   1 root     root          5716 Oct 30 21:23 ./4.10.08029/external-sso-4.10.08029-webdeploy-k9.pkg
+   354617  50684 -rw-r--r--   1 root     root      51897050 Oct 30 21:22 ./4.10.08029/anyconnect-win-arm64-4.10.08029-predeploy-k9.zip
+   354619     72 -rw-r--r--   1 root     root         70132 Oct 30 21:21 ./4.10.08029/tools-anyconnect-win-4.10.08029-transforms.zip
+   354620  11364 -rw-r--r--   1 root     root      11636736 Oct 30 21:21 ./4.10.08029/tools-anyconnect-win-4.10.08029-profileeditor-k9.msi
+   358466   7244 -rw-r--r--   1 root     root       7417039 Oct 30 21:19 ./4.10.08029/anyconnect-linux64-4.10.08029-predeploy-deb-k9.tar.gz
+   358468   8092 -rw-r--r--   1 root     root       8285759 Oct 30 21:24 ./4.10.08029/anyconnect-linux64-4.10.08029-predeploy-rpm-k9.tar.gz
+   358469  54396 -rw-r--r--   1 root     root      55701047 Oct 30 21:25 ./4.10.08029/anyconnect-linux64-4.10.08029-webdeploy-k9.pkg
+   358470 102632 -rw-r--r--   1 root     root     105092382 Oct 30 21:25 ./4.10.08029/anyconnect-macos-4.10.08029-webdeploy-k9.pkg
+   358471  90448 -rw-r--r--   1 root     root      92616481 Oct 30 21:25 ./4.10.08029/anyconnect-win-4.10.08029-webdeploy-k9.pkg
+   358472  67336 -rw-r--r--   1 root     root      68948358 Oct 30 21:25 ./4.10.08029/anyconnect-win-arm64-4.10.08029-webdeploy-k9.pkg
+103401693  26812 -rw-r--r--   1 root     root      27455141 Feb  8  2021 ./4.9.06037/anyconnect-linux64-4.9.06037-predeploy-k9.tar.gz
+103401694   7004 -rw-r--r--   1 root     root       7171560 Feb  8  2021 ./4.9.06037/anyconnect-linux64-4.9.06037-vpnapi.tar.gz
+103401695  36436 -rw-r--r--   1 root     root      37307498 Feb  8  2021 ./4.9.06037/anyconnect-linux64-4.9.06037-webdeploy-k9.pkg
+103401696  43332 -rw-r--r--   1 root     root      44370983 Feb  8  2021 ./4.9.06037/anyconnect-macos-4.9.06037-predeploy-k9.dmg
+103401697  35316 -rw-r--r--   1 root     root      36162372 Feb  8  2021 ./4.9.06037/anyconnect-macos-4.9.06037-vpnapi.tar.gz
+103401698  59608 -rw-r--r--   1 root     root      61036138 Feb  8  2021 ./4.9.06037/anyconnect-macos-4.9.06037-webdeploy-k9.pkg
+103401699    652 -rw-r--r--   1 root     root        664582 Feb  8  2021 ./4.9.06037/anyconnect-win-4.9.06037-core-vpn-lang-predeploy-k9.zip
+103401700    652 -rw-r--r--   1 root     root        664604 Feb  8  2021 ./4.9.06037/anyconnect-win-4.9.06037-core-vpn-lang-webdeploy-k9.zip
+103401701  67380 -rw-r--r--   1 root     root      68995140 Feb  8  2021 ./4.9.06037/anyconnect-win-4.9.06037-predeploy-k9.zip
+103401702 145052 -rw-r--r--   1 root     root     148532065 Feb  8  2021 ./4.9.06037/anyconnect-win-4.9.06037-vpnapi.zip
+103401703  78204 -rw-r--r--   1 root     root      80078630 Feb  8  2021 ./4.9.06037/anyconnect-win-4.9.06037-webdeploy-k9.pkg
+103401704  34948 -rw-r--r--   1 root     root      35784452 Feb  8  2021 ./4.9.06037/anyconnect-win-arm64-4.9.06037-predeploy-k9.zip
+103401705  44884 -rw-r--r--   1 root     root      45958525 Feb  8  2021 ./4.9.06037/anyconnect-win-arm64-4.9.06037-webdeploy-k9.pkg
+103401706  89992 -rw-r--r--   1 root     root      92147928 Feb  8  2021 ./4.9.06037/hostscan_4.9.06037-k9.zip
+103401707  10864 -rw-r--r--   1 root     root      11122176 Feb  8  2021 ./4.9.06037/tools-anyconnect-win-4.9.06037-profileeditor-k9.msi
+103401708     52 -rw-r--r--   1 root     root         50943 Feb  8  2021 ./4.9.06037/tools-anyconnect-win-4.9.06037-transforms.zip
+103401709  90440 -rw-r--r--   1 root     root      92606938 May 27  2021 ./4.9.06037/hostscan_4.9.06046-k9.pkg
+ 35248631 107492 -rw-r--r--   1 root     root     110068961 Mar 11  2024 ./5.0.05040/cisco-secure-client-macos-5.0.05040-webdeploy-k9.pkg
+ 35248632  97460 -rw-r--r--   1 root     root      99798014 Mar 11  2024 ./5.0.05040/cisco-secure-client-win-5.0.05040-webdeploy-k9.pkg
+ 35248633 122732 -rw-r--r--   1 root     root     125674958 Mar 11  2024 ./5.0.05040/cisco-secure-client-win-5.0.05040-vpnapi.zip
+ 35248634  66720 -rw-r--r--   1 root     root      68320172 Mar 11  2024 ./5.0.05040/cisco-secure-client-win-arm64-5.0.05040-predeploy-k9.zip
+ 35248635  90860 -rw-r--r--   1 root     root      93040028 Mar 11  2024 ./5.0.05040/cisco-secure-client-win-5.0.05040-predeploy-k9.zip
+ 35248636  85624 -rw-r--r--   1 root     root      87675553 Mar 11  2024 ./5.0.05040/cisco-secure-client-win-arm64-5.0.05040-webdeploy-k9.pkg
+ 35248637   7532 -rw-r--r--   1 root     root       7709792 Mar 11  2024 ./5.0.05040/cisco-secure-client-linux64-5.0.05040-predeploy-deb-k9.tar.gz
+ 35248638  56984 -rw-r--r--   1 root     root      58348396 Mar 11  2024 ./5.0.05040/cisco-secure-client-linux64-5.0.05040-vpnapi.tar.gz
+ 35248639  92892 -rw-r--r--   1 root     root      95118429 Mar 11  2024 ./5.0.05040/cisco-secure-client-macos-5.0.05040-predeploy-k9.dmg
+ 34653032  58824 -rw-r--r--   1 root     root      60232855 Mar 11  2024 ./5.0.05040/cisco-secure-client-linux64-5.0.05040-webdeploy-k9.pkg
+ 34653033     72 -rw-r--r--   1 root     root         70000 Mar 11  2024 ./5.0.05040/tools-cisco-secure-client-win-5.0.05040-transforms.zip
+ 34653034  16152 -rw-r--r--   1 root     root      16538112 Mar 11  2024 ./5.0.05040/tools-cisco-secure-client-win-5.0.05040-profileeditor-k9.msi
+ 34653035  38128 -rw-r--r--   1 root     root      39039463 Mar 11  2024 ./5.0.05040/cisco-secure-client-linux64-5.0.05040-predeploy-k9.tar.gz
+ 34653036  59304 -rw-r--r--   1 root     root      60724742 Mar 11  2024 ./5.0.05040/cisco-secure-client-macos-5.0.05040-vpnapi.tar.gz
+ 34653037   8396 -rw-r--r--   1 root     root       8596610 Mar 11  2024 ./5.0.05040/cisco-secure-client-linux64-5.0.05040-predeploy-rpm-k9.tar.gz
+ 34653038      8 -rw-r--r--   1 root     root          5715 Mar 11  2024 ./5.0.05040/external-sso-5.0.05040-webdeploy-k9.pkg
+101032464 104536 -rw-r--r--   1 root     root     107040886 Oct 29 16:36 ./5.1.12.146/cisco-secure-client-linux64-5.1.12.146-predeploy-k9.tar.gz
+101032469 158356 -rw-r--r--   1 root     root     162153657 Oct 29 16:36 ./5.1.12.146/cisco-secure-client-macos-5.1.12.146-predeploy-k9.dmg
+101032470 131212 -rw-r--r--   1 root     root     134360771 Oct 29 16:36 ./5.1.12.146/cisco-secure-client-win-5.1.12.146-vpnapi.zip
+101032471 114008 -rw-r--r--   1 root     root     116741124 Oct 29 16:35 ./5.1.12.146/cisco-secure-client-win-arm64-5.1.12.146-predeploy-k9.zip
+101032472  96240 -rw-r--r--   1 root     root      98545833 Oct 29 16:35 ./5.1.12.146/cisco-secure-client-linux-arm64-5.1.12.146-predeploy-k9.tar.gz
+101032473  35556 -rw-r--r--   1 root     root      36406974 Oct 29 16:35 ./5.1.12.146/cisco-secure-client-linux-arm64-5.1.12.146-vpnapi.tar.gz
+101032474 132248 -rw-r--r--   1 root     root     135419864 Oct 29 16:34 ./5.1.12.146/cisco-secure-client-win-5.1.12.146-predeploy-k9.zip
+101032475  34244 -rw-r--r--   1 root     root      35062699 Oct 29 16:34 ./5.1.12.146/cisco-secure-client-linux64-5.1.12.146-vpnapi.tar.gz
+101032465  15120 -rw-r--r--   1 root     root      15481856 Oct 29 16:33 ./5.1.12.146/tools-cisco-secure-client-win-5.1.12.146-profileeditor-k9.msi
+101032476      8 -rw-r--r--   1 root     root          5741 Oct 29 16:33 ./5.1.12.146/external-sso-5.1.12.146-webdeploy-k9.pkg
+101032477  14512 -rw-r--r--   1 root     root      14856823 Oct 29 16:32 ./5.1.12.146/cisco-secure-client-macos-5.1.12.146-vpnapi.tar.gz
+101032479     80 -rw-r--r--   1 root     root         80549 Oct 29 16:27 ./5.1.12.146/tools-cisco-secure-client-win-5.1.12.146-transforms.zip
+ 33718591    760 -rw-r-----   1 50018997 25          777254 Sep 19 00:07 ./5.1.12.146/extracted/linux64/cisco-secure-client-linux64-5.1.12.146/nvm/ac_kdf_src.tar.gz
+  2880872  11204 -rw-r--r--   1 root      root      11472896 Sep 18 15:38 ./5.1.12.146/extracted/windows-x64/cisco-secure-client-win-2.9.0-thousandeyes-predeploy-k9.msi
+  2489874  22572 -rw-r--r--   1 root      root      23111680 Sep 18 16:21 ./5.1.12.146/extracted/windows-x64/cisco-secure-client-win-5.1.12.146-core-vpn-predeploy-k9.msi
+  2489875   6956 -rw-r--r--   1 root      root       7121920 Sep 18 16:22 ./5.1.12.146/extracted/windows-x64/cisco-secure-client-win-5.1.12.146-dart-predeploy-k9.msi
+  2489876   4740 -rw-r--r--   1 root      root       4851712 Sep 18 16:08 ./5.1.12.146/extracted/windows-x64/cisco-secure-client-win-5.1.12.146-iseposture-predeploy-k9.msi
+  2489877   7140 -rw-r--r--   1 root      root       7307776 Sep 18 16:02 ./5.1.12.146/extracted/windows-x64/cisco-secure-client-win-5.1.12.146-nam-predeploy-k9.msi
+  2489878  24112 -rw-r--r--   1 root      root      24688128 Sep 18 16:17 ./5.1.12.146/extracted/windows-x64/cisco-secure-client-win-5.1.12.146-nvm-predeploy-k9.msi
+  2489879  34060 -rw-r--r--   1 root      root      34876416 Sep 18 16:01 ./5.1.12.146/extracted/windows-x64/cisco-secure-client-win-5.1.12.146-posture-predeploy-k9.msi
+  2489880   3084 -rw-r--r--   1 root      root       3155456 Sep 18 16:23 ./5.1.12.146/extracted/windows-x64/cisco-secure-client-win-5.1.12.146-sbl-predeploy-k9.msi
+  2489881   5288 -rw-r--r--   1 root      root       5413376 Sep 18 16:11 ./5.1.12.146/extracted/windows-x64/cisco-secure-client-win-5.1.12.146-umbrella-predeploy-k9.msi
+  2489882  31924 -rw-r--r--   1 root      root      32686592 Sep 18 15:43 ./5.1.12.146/extracted/windows-x64/cisco-secure-client-win-5.1.12.2345-zta-predeploy-k9.msi
+ 34569494  21460 -rw-r--r--   1 root      root      21975040 Sep 18 16:22 ./5.1.12.146/extracted/windows-arm64/cisco-secure-client-win-arm64-5.1.12.146-core-vpn-predeploy-k9.msi
+ 34569495   6940 -rw-r--r--   1 root      root       7104000 Sep 18 16:23 ./5.1.12.146/extracted/windows-arm64/cisco-secure-client-win-arm64-5.1.12.146-dart-predeploy-k9.msi
+ 34569496   4740 -rw-r--r--   1 root      root       4851712 Sep 18 16:05 ./5.1.12.146/extracted/windows-arm64/cisco-secure-client-win-arm64-5.1.12.146-iseposture-predeploy-k9.msi
+ 34569497  24072 -rw-r--r--   1 root      root      24648192 Sep 18 16:16 ./5.1.12.146/extracted/windows-arm64/cisco-secure-client-win-arm64-5.1.12.146-nvm-predeploy-k9.msi
+ 34569498  34064 -rw-r--r--   1 root      root      34879488 Sep 18 16:00 ./5.1.12.146/extracted/windows-arm64/cisco-secure-client-win-arm64-5.1.12.146-posture-predeploy-k9.msi
+ 34569499   2336 -rw-r--r--   1 root      root       2388992 Sep 18 16:23 ./5.1.12.146/extracted/windows-arm64/cisco-secure-client-win-arm64-5.1.12.146-sbl-predeploy-k9.msi
+ 34569500   5288 -rw-r--r--   1 root      root       5413376 Sep 18 16:11 ./5.1.12.146/extracted/windows-arm64/cisco-secure-client-win-arm64-5.1.12.146-umbrella-predeploy-k9.msi
+ 34569501  31924 -rw-r--r--   1 root      root      32686592 Sep 18 15:38 ./5.1.12.146/extracted/windows-arm64/cisco-secure-client-win-arm64-5.1.12.2345-zta-predeploy-k9.msi
+  2489908    760 -rw-r--r--   1 root      root        777237 Sep 18 23:57 ./5.1.12.146/extracted/linux-arm64/cisco-secure-client-linux-arm64-5.1.12.146/nvm/ac_kdf_src.tar.gz
+101033553  11052 -rw-r--r--   1 root      root      11313444 Oct 29 16:33 ./5.1.12.146/cisco-secure-client-linux-arm64-5.1.12.146-predeploy-deb-k9.tar.gz
+101033587  12416 -rw-r--r--   1 root      root      12713314 Oct 29 16:31 ./5.1.12.146/cisco-secure-client-linux-arm64-5.1.12.146-predeploy-rpm-k9.tar.gz
+101033588  84904 -rw-r--r--   1 root      root      86938152 Oct 29 16:34 ./5.1.12.146/cisco-secure-client-linux-arm64-5.1.12.146-webdeploy-k9.pkg
+101033589  12184 -rw-r--r--   1 root      root      12472533 Oct 29 16:34 ./5.1.12.146/cisco-secure-client-linux64-5.1.12.146-predeploy-deb-k9.tar.gz
+101015667  13664 -rw-r--r--   1 root      root      13989005 Oct 29 16:36 ./5.1.12.146/cisco-secure-client-linux64-5.1.12.146-predeploy-rpm-k9.tar.gz
+101014751  96272 -rw-r--r--   1 root      root      98578618 Oct 29 16:35 ./5.1.12.146/cisco-secure-client-linux64-5.1.12.146-webdeploy-k9.pkg
+101014755 155904 -rw-r--r--   1 root      root     159643802 Oct 29 16:35 ./5.1.12.146/cisco-secure-client-macos-5.1.12.146-webdeploy-k9.pkg
+101014759 148976 -rw-r--r--   1 root      root     152550076 Oct 29 16:35 ./5.1.12.146/cisco-secure-client-win-5.1.12.146-webdeploy-k9.pkg
+101014134 139452 -rw-r--r--   1 root      root     142797022 Oct 29 16:35 ./5.1.12.146/cisco-secure-client-win-arm64-5.1.12.146-webdeploy-k9.pkg

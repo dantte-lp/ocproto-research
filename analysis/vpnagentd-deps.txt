@@ -1,0 +1,22 @@
+	linux-vdso.so.1 (0x00007f069204e000)
+	libvpnapi.so => not found
+	libvpncommoncrypt.so => not found
+	libvpncommon.so => not found
+	libvpnagentutilities.so => not found
+	libacciscossl.so => not found
+	libacciscocrypto.so => not found
+	libaccurl.so.4 => not found
+	libboost_system.so => not found
+	libboost_thread.so => not found
+	libboost_filesystem.so => not found
+	libboost_regex.so => not found
+	libxml2.so.2 => /lib64/libxml2.so.2 (0x00007f0691a9e000)
+	libpthread.so.0 => /lib64/libpthread.so.0 (0x00007f069203a000)
+	libz.so.1 => /lib64/libz.so.1 (0x00007f0692017000)
+	librt.so.1 => /lib64/librt.so.1 (0x00007f0692012000)
+	libstdc++.so.6 => /lib64/libstdc++.so.6 (0x00007f0691800000)
+	libm.so.6 => /lib64/libm.so.6 (0x00007f0691f62000)
+	libgcc_s.so.1 => /lib64/libgcc_s.so.1 (0x00007f0691f35000)
+	libc.so.6 => /lib64/libc.so.6 (0x00007f0691627000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f0692050000)
+	liblzma.so.5 => /lib64/liblzma.so.5 (0x00007f06915f3000)

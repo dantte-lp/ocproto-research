@@ -1,0 +1,31 @@
+X-Aggregate-Auth
+X-AnyConnect-STRAP-DH-Pubkey
+X-AnyConnect-STRAP-Pubkey
+X-Transcend-Version
+X-AnyConnect-STRAP-Pubkey: 
+X-AnyConnect-STRAP-Verify
+X-AnyConnect-STRAP-Verify: 
+X-CSTP-Accept-Encoding: lzs
+X-CSTP-Accept-Encoding: lzs,deflate
+X-CSTP-Address-Type: IPv4
+X-CSTP-Address-Type: IPv6,IPv4
+X-CSTP-Base-MTU: 
+X-CSTP-FIPS-Mode: enabled
+X-CSTP-Full-IPv6-Capability: false
+X-CSTP-Full-IPv6-Capability: true
+X-CSTP-Hostname: 
+X-CSTP-License: mobile
+X-CSTP-Local-Address-IP4: 
+X-CSTP-Local-Address-IP6: 
+X-CSTP-MTU: 
+X-CSTP-Protocol: Copyright (c) 2004 Cisco Systems, Inc.
+X-CSTP-Remote-Address-IP4: 
+X-CSTP-Remote-Address-IP6: 
+X-CSTP-TCP-Keepalive: false
+X-CSTP-Version: 
+X-DTLS12-CipherSuite: 
+X-DTLS-Accept-Encoding: lzs
+X-DTLS-CipherSuite: 
+X-DTLS-Header-Pad-Length: 0
+X-DTLS-Master-Secret: 
+X-Transcend-Version

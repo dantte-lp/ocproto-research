@@ -1,0 +1,27 @@
+MD5
+f803c4cf51ec9e7782c34de58e2f693a *installers/ida-pro_92_armmac.app.zip
+6da6d040dde2b0add918c62af1786307 *installers/ida-pro_92_x64linux.run
+c8aab2cef03b6093eb91f82ac3ad0473 *installers/ida-pro_92_x64mac.app.zip
+b94f572bdd78e2aa104c8d8f283c8916 *installers/ida-pro_92_x64win.exe
+4053e5d4e718f42e548673f4a88dbd1a *keygens_patchers/idapro.hexlic
+705161f74cd1f9bc61722b3bef40d0f5 *keygens_patchers/keygen-v2_bgspa.py
+9b8ce4a5a81f9abb3907f0f55282264e *keygens_patchers/keygen3.py
+25965dcd02f378785a17b587d15f8c51 *./keygens_patchers/keygens by TOM_RUS/Hex-Rays.Keyfilemaker.v2.MacOS.U2B-TOM_RUS.zip
+b5c94e02bb16945a1be2d1babea5b88a *./keygens_patchers/keygens by TOM_RUS/ida_keygen_v2 win.7z
+87558cd6cb0b3694bad262efb63279bd *./keygens_patchers/keygens by TOM_RUS/ida_keygen_v2_armmac.zip
+4fbc33d94015fee42023b6248dee6c56 *./keygens_patchers/keygens by TOM_RUS/ida_keygen_v2_linux.zip
+ddf028f337231b2b9c9b8811ce5df572 *./keygens_patchers/keygens by TOM_RUS/ida_keygen_v2_x64mac.zip
+cacdb211f7299044ad67bfaeff2c2a9e *./keygens_patchers/keygens by vovan2200/for v9.1/keygen_lumina.py
+5d1b046db0791ebb90766f0a62803ea2 *./keygens_patchers/keygens by vovan2200/for v9.1/keygen_vault.py
+e0e2eb4c69a734248493ca9e4e775d0b *./keygens_patchers/keygens by vovan2200/for v9.1/patch_cert_hexvault.py
+9d1c5d3ffb054ce64f3ef5b83870032a *./keygens_patchers/keygens by vovan2200/for v9.1/patch_cert_lumina.py
+ee0deacb1b530c9a0e416bfca1ac6787 *./keygens_patchers/keygens by vovan2200/for v9.1/root_ca.cer
+f86c038aecba9512aed2158ef3cedffb *./keygens_patchers/keygens by vovan2200/keygen.py
+50ed1fe385bc36a58ec4df66be743fab *./keygens_patchers/keygens by vovan2200/keygen_lumina.py
+813d9cbe338d4191cb56fa513038c538 *./keygens_patchers/keygens by vovan2200/keygen_vault.py
+f18490eaf12dd35a225eeb96cd61eb40 *misc/IDA Pro 9.2 Beta 2 Qt 6 Fix for Win7.rar
+c2f36ce3509ca57d52f39bdacc4f297c *misc/ida-sdk-main v9.2.zip
+fedfe40c96156fe034779a5a94495713 *nfo/NFOReader.exe
+4c7d4b31c96cb971dc93c280fdfdc08d *nfo/NFOReader.exe.sha512
+0e92bb5541d6156daccb8afa5e6e2f28 *nfo/bgspa.NFO
+12f26a30cfa9f1dbe8fc3bf411204cb8 *nfo/file_id.diz

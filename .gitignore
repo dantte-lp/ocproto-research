@@ -1,0 +1,228 @@
+# Cisco Secure Client - Repository .gitignore
+# Generated: 2025-10-30
+
+# ============================================================================
+# BINARIES - NEVER commit proprietary binaries
+# ============================================================================
+
+# Binary packages
+binaries/**/*.tar.gz
+binaries/**/*.zip
+binaries/**/*.pkg
+binaries/**/*.dmg
+binaries/**/*.msi
+binaries/**/*.exe
+binaries/**/*.dll
+binaries/**/*.so
+binaries/**/*.dylib
+binaries/**/*.apk
+
+# Binary executables
+*.exe
+*.dll
+*.so
+*.so.*
+*.dylib
+*.a
+*.lib
+
+# But keep directory structure and inventory files
+!binaries/**/README.md
+!binaries/**/*.json
+!binaries/**/*.txt
+!binaries/**/*.md
+
+# ============================================================================
+# EXTRACTED BINARY CONTENTS
+# ============================================================================
+
+# Extracted directories
+extracted/
+unpacked/
+*/extracted/
+*/unpacked/
+temp/
+tmp/
+
+# Except keep the extracted/ structure for documentation
+!binaries/*/extracted/README.md
+
+# ============================================================================
+# DECOMPILATION DATABASES AND OUTPUT
+# ============================================================================
+
+# IDA Pro
+*.idb
+*.i64
+*.id0
+*.id1
+*.id2
+*.nam
+*.til
+
+# Binary Ninja
+*.bndb
+
+# Ghidra
+*.gzf
+*.ghidra/
+*.rep/
+
+# Radare2
+*.r2/
+
+# Decompiled output directories (keep .md docs)
+decompiled/linux/*.txt
+decompiled/linux/*.c
+decompiled/linux/*.h
+decompiled/windows/*.txt
+decompiled/windows/*.c
+decompiled/windows/*.h
+decompiled/macos/*.txt
+decompiled/macos/*.c
+decompiled/macos/*.h
+decompiled/darwin/*.txt
+decompiled/darwin/*.c
+decompiled/darwin/*.h
+decompiled/reports/*.txt
+decompiled/reports/*.html
+decompiled/reports/*.csv
+
+# But preserve markdown documentation
+!decompiled/**/*.md
+!decompiled/README.md
+
+# ============================================================================
+# ANALYSIS OUTPUT (large files)
+# ============================================================================
+
+# Analysis output directories
+analysis/output/*.txt
+analysis/output/*.json
+analysis/output/*.csv
+analysis/*/output/*.txt
+analysis/*/output/*.json
+
+# But keep analysis documentation
+!analysis/**/*.md
+!analysis/*.md
+
+# ============================================================================
+# SYSTEM FILES
+# ============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+
+# ============================================================================
+# EDITOR FILES
+# ============================================================================
+
+# Vim
+*.swp
+*.swo
+*.swn
+.*.swp
+.*.swo
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.iml
+
+# ============================================================================
+# BUILD ARTIFACTS
+# ============================================================================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# Node.js
+node_modules/
+npm-debug.log*
+
+# Rust
+target/
+Cargo.lock
+
+# Go
+*.test
+*.out
+
+# ============================================================================
+# LOGS AND TEMPORARY FILES
+# ============================================================================
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# ============================================================================
+# SECURITY - Never commit sensitive data
+# ============================================================================
+
+# Credentials and secrets
+.env
+.env.local
+credentials.json
+secrets.json
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Configuration with potential secrets
+config.local.*
+*-secret.*
+
+# ============================================================================
+# CUSTOM PROJECT DIRECTORIES
+# ============================================================================
+
+# Sandbox/testing directories
+sandbox/
+test-output/
+scratch/
+
+# Personal notes (if any)
+NOTES.private.md
+TODO.private.md
+
+# IDA Pro installers and keygens (too large for GitHub, local only)
+reverse-engineering-tools/IDA_Pro_9.2.250908/installers/
+reverse-engineering-tools/IDA_Pro_9.2.250908/keygens_patchers/
+reverse-engineering-tools/IDA_Pro_9.2.250908/misc/
+reverse-engineering-tools/IDA_Pro_9.2.250908/nfo/

@@ -1,0 +1,42 @@
+4http://crl3.digicert.com/DigiCertAssuredIDRootCA.crl0O
+4http://crl4.digicert.com/DigiCertAssuredIDRootCA.crl0:
+7http://cacerts.digicert.com/DigiCertAssuredIDRootCA.crt0
+Bhttp://cacerts.digicert.com/DigiCertSHA2AssuredIDCodeSigningCA.crt0
+Cisco Secure Client cannot establish a VPN session because a device in the network, such as a proxy server or captive portal, is blocking Internet access.
+CNetInterface::GetAssociatedInterfaceName
+Depending on the type of device blocking access, you may be able to establish a VPN session after visiting a website with your browser and completing the steps required to obtain Internet access.
+Fast startup detected with no VPN session, loading cached VPN configuration.
+Fast startup detected with started VPN session.
+Forwarding of IPC message type %d, ID %d, while the VPN session is active has been rejected.
+Handling post-auth IPsec redirect notification
+/http://crl3.digicert.com/sha2-assured-cs-g1.crl05
+/http://crl4.digicert.com/sha2-assured-cs-g1.crl0K
+http://ocsp.digicert.com0C
+http://ocsp.digicert.com0N
+https://
+ (http status code: 
+https://www.digicert.com/CPS0
+http://www.digicert.com/CPS0
+libxml2.so.2
+Need to redetermine the public proxy, force session level reconnect
+new session ticket
+None of the authentication protocols offered by the proxy server are supported.
+OnTunnelStateChange sessionState=%i
+Originates from session level
+Pretunnel IPC message %u received while VPN session is already active.
+Proxy authentication failed using the supplied credentials.
+Proxy authentication required
+Resumed from suspend hasTunnel=%i sessionState=%i isConnectedStandbyExit=%i
+Secure gateway IP addresses have changed, force session level reconnect
+sessioninfo logout url=%s
+SSL_session_reused
+SSL_set_session
+The secure gateway is responding, but Cisco Secure Client - AnyConnect VPN could not establish a VPN session.  Please retry.
+TND processing in progress, force session level reconnect
+Transitioned sessionState: %i->%i sessionSubState: %i->%i
+Unable to write user session change
+Unexpected session state [%u], expected RECONNECTING [%u]
+Unexpected SSO token request from diminished app
+Waiting on ResumeEvent vpnMgr=%p sessionState=%i
+Your VPN connection will soon exceed the session time limit.  A new connection will be necessary.
+_ZN13CNetInterface26GetAssociatedInterfaceNameERK7CIPAddrRSs

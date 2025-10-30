@@ -1,0 +1,111 @@
+DMCA Section 1201(f) Interoperability Research License
+
+Copyright (c) 2025 WolfGuard Project Contributors
+
+This repository contains research conducted under 17 U.S.C. § 1201(f) -
+Reverse Engineering for interoperability purposes.
+
+RESEARCH PURPOSE
+================
+
+This research is conducted exclusively for achieving interoperability with
+existing VPN client implementations, as permitted under United States copyright
+law (17 U.S.C. § 1201(f)).
+
+PERMITTED USES
+==============
+
+1. Analysis documentation (permitted under fair use and §1201(f))
+2. Methodology descriptions (permitted as original work)
+3. Protocol specifications derived from analysis (interoperability research)
+4. Automation scripts for analysis (original work, MIT licensed - see below)
+
+NOT INCLUDED / NOT PERMITTED
+=============================
+
+1. Proprietary binaries (not distributed, obtain from official sources)
+2. Copyrighted Cisco source code (not reverse engineered)
+3. Circumvention tools for access control
+4. Copyright violations of any kind
+
+DOCUMENTATION LICENSE
+=====================
+
+Analysis documentation in this repository is licensed under:
+Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+https://creativecommons.org/licenses/by-sa/4.0/
+
+AUTOMATION SCRIPTS LICENSE
+===========================
+
+Automation scripts (Python, Shell, etc.) are licensed under MIT License:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+LEGAL COMPLIANCE
+================
+
+17 U.S.C. § 1201(f) states:
+
+"(f) Reverse Engineering.—
+
+(1) Notwithstanding the provisions of subsection (a)(1)(A), a person who has
+lawfully obtained the right to use a copy of a computer program may circumvent
+a technological measure that effectively controls access to a particular portion
+of that program for the sole purpose of identifying and analyzing those elements
+of the program that are necessary to achieve interoperability of an independently
+created computer program with other programs, and that have not previously been
+readily available to the person engaging in the circumvention, to the extent any
+such acts of identification and analysis do not constitute infringement under
+this title or a violation of applicable law other than this section.
+
+(2) Notwithstanding the provisions of subsections (a)(2) and (b), a person may
+develop and employ technological means to circumvent a technological measure, or
+to circumvent protection afforded by a technological measure, in order to enable
+the identification and analysis under paragraph (1), or for the purpose of
+enabling interoperability of an independently created computer program with other
+programs, if such means are necessary to achieve such interoperability, to the
+extent that doing so does not constitute infringement under this title."
+
+TRADEMARK NOTICE
+================
+
+"Cisco", "AnyConnect", "Cisco Secure Client", and related trademarks are the
+property of Cisco Systems, Inc. This research project is not affiliated with,
+endorsed by, or sponsored by Cisco Systems, Inc.
+
+The name "WolfGuard" and associated project names are trademarks of the
+WolfGuard Project.
+
+DISCLAIMER
+==========
+
+THE RESEARCH AND DOCUMENTATION ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY
+KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF
+THIRD-PARTY RIGHTS.
+
+This research does not infringe on copyright protections and complies with all
+applicable laws. Users are responsible for ensuring their own compliance with
+applicable laws and software licenses.
+
+---
+
+For questions about this license, see docs/legal-compliance.md or create an
+issue at: https://github.com/YOUR-ORG/ocproto-research/issues

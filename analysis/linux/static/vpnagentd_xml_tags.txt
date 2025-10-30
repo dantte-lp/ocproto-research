@@ -1,0 +1,16 @@
+CInstanceSmartPtr<CExecutionContext>
+PluginLoader::QuickCreatePlugin<IPhoneHomePlugin> for Services
+PluginLoader::Plugin_dynamic_cast<T>
+CInstanceSmartPtr<CPublicProxies>
+CInstanceSmartPtr<CHostConfigMgr>
+CInstanceSmartPtr<PreferenceMgr>
+CInstanceSmartPtr<CIpcDepot>
+CInstanceSmartPtr<CVpnParam>
+CInstanceSmartPtr<CCvcConfig>
+CInstanceSmartPtr<SessionInfo>
+CInstanceSmartPtr<CNetEnvironment>
+CInstanceSmartPtr<CMtuAdjustmentCache>
+CInstanceSmartPtr<CSessionInfo>
+CInstanceSmartPtr<StoragePath>
+CInstanceSmartPtr<CMainThread>
+PluginLoader::QuickCreatePlugin<IServicePlugin> for Services
