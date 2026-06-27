@@ -1,0 +1,42 @@
+
+Elf file type is DYN (Position-Independent Executable file)
+Entry point 0x4f50
+There are 10 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset             VirtAddr           PhysAddr
+                 FileSiz            MemSiz              Flags  Align
+  PHDR           0x0000000000000040 0x0000000000000040 0x0000000000000040
+                 0x0000000000000230 0x0000000000000230  R      0x8
+  INTERP         0x0000000000000270 0x0000000000000270 0x0000000000000270
+                 0x000000000000001c 0x000000000000001c  R      0x1
+      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+  LOAD           0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x000000000002f15e 0x000000000002f15e  R E    0x200000
+  LOAD           0x000000000002f5a0 0x000000000022f5a0 0x000000000022f5a0
+                 0x0000000000000a90 0x0000000000000ba0  RW     0x200000
+  DYNAMIC        0x000000000002f860 0x000000000022f860 0x000000000022f860
+                 0x0000000000000250 0x0000000000000250  RW     0x8
+  NOTE           0x000000000000028c 0x000000000000028c 0x000000000000028c
+                 0x0000000000000044 0x0000000000000044  R      0x4
+  TLS            0x000000000002f5a0 0x000000000022f5a0 0x000000000022f5a0
+                 0x0000000000000000 0x0000000000001a21  R      0x10
+  GNU_EH_FRAME   0x0000000000027de4 0x0000000000027de4 0x0000000000027de4
+                 0x0000000000000c34 0x0000000000000c34  R      0x4
+  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000000 0x0000000000000000  RW     0x10
+  GNU_RELRO      0x000000000002f5a0 0x000000000022f5a0 0x000000000022f5a0
+                 0x0000000000000a60 0x0000000000000a60  R      0x1
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     
+   01     .interp 
+   02     .interp .note.ABI-tag .note.gnu.build-id .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt .init .plt .text .fini .rodata .eh_frame_hdr .eh_frame .gcc_except_table 
+   03     .init_array .fini_array .data.rel.ro .dynamic .got .data .bss 
+   04     .dynamic 
+   05     .note.ABI-tag .note.gnu.build-id 
+   06     .tbss 
+   07     .eh_frame_hdr 
+   08     
+   09     .init_array .fini_array .data.rel.ro .dynamic .got 

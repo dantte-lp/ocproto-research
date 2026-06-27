@@ -1,0 +1,1 @@
+/opt/projects/repositories/ocproto-research/binaries/5.1.12.146/extracted/linux64/cisco-secure-client-linux64-5.1.12.146/iseposture/bin/csc_iseposture: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=b778b21857b8a198188e1b9da0080835c830a035, for GNU/Linux 3.2.0, stripped

@@ -1,0 +1,893 @@
+_ZGVN5boost4asio3ssl6detail12openssl_initILb1EE9instance_E
+_ZN5boost4asio3ssl6detail12openssl_initILb1EE9instance_E
+_ZNK5boost4asio5error6detail12ssl_category7messageB5cxx11Ei
+_ZGVZN5boost4asio3ssl6detail17openssl_init_base8instanceEvE4init
+_ZTIN5boost12noncopyable_10base_tokenE
+_ZTSSt15_Sp_counted_ptrIPN5boost4asio3ssl6detail17openssl_init_base7do_initELN9__gnu_cxx12_Lock_policyE2EE
+_ZN5boost4asio3ssl6detail12openssl_initILb1EED2Ev
+_ZTVSt15_Sp_counted_ptrIPN5boost4asio3ssl6detail17openssl_init_base7do_initELN9__gnu_cxx12_Lock_policyE2EE
+_ZNK5boost4asio5error6detail12ssl_category4nameEv
+_ZN9ACRuntime9CertUtils19HashEnumToOpenSSLMDENS0_8eHashAlgEi
+_ZNSt15_Sp_counted_ptrIPN5boost4asio3ssl6detail17openssl_init_base7do_initELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv
+_ZNK5boost4asio3ssl5error6detail15stream_category7messageB5cxx11Ei
+_ZNSt15_Sp_counted_ptrIPN5boost4asio3ssl6detail17openssl_init_base7do_initELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info
+_ZTSN5boost12noncopyable_10base_tokenE
+_ZTISt15_Sp_counted_ptrIPN5boost4asio3ssl6detail17openssl_init_base7do_initELN9__gnu_cxx12_Lock_policyE2EE
+_ZZN5boost4asio3ssl6detail17openssl_init_base8instanceEvE4init
+_ZNSt15_Sp_counted_ptrIPN5boost4asio3ssl6detail17openssl_init_base7do_initELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv
+_ZNK5boost4asio3ssl5error6detail15stream_category4nameEv
+_ZN9ACRuntime9CertStore23VerifyServerCertificateERKSt6vectorISt10shared_ptrINS_11CertificateEESaIS4_EEbPKcRj
+_ZNSt15_Sp_counted_ptrIPN5boost4asio3ssl6detail17openssl_init_base7do_initELN9__gnu_cxx12_Lock_policyE2EED0Ev
+_ZN7CMIDApi12RefreshTokenEv
+_ZN7CMIDApi8GetTokenERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+OPENSSL_sk_num
+X509_verify_cert_error_string
+OPENSSL_sk_new_null
+OPENSSL_sk_push
+EVP_VerifyFinal
+OPENSSL_sk_pop
+X509_STORE_set_verify_cb
+OPENSSL_sk_value
+OPENSSL_sk_pop_free
+OPENSSL_sk_free
+X509_verify_cert
+SSL_write
+SSL_shutdown
+SSL_CTX_new
+SSL_CTX_set_ex_data
+SSL_CTX_set_options
+SSL_get_error
+SSL_get_shutdown
+SSL_CTX_set_cert_verify_callback
+SSL_connect
+SSL_CTX_free
+SSL_set_bio
+SSL_CTX_ctrl
+SSL_CTX_get_ex_data
+SSL_get_SSL_CTX
+SSL_CTX_set_verify
+SSL_get_client_CA_list
+SSL_CTX_set_client_cert_cb
+DTLS_client_method
+SSL_free
+SSL_ctrl
+SSL_get_servername
+SSL_SESSION_free
+OPENSSL_init_ssl
+SSL_CTX_use_certificate
+SSL_CTX_use_PrivateKey
+SSL_CTX_set_cipher_list
+OPENSSL_init_crypto
+SSL_CTX_check_private_key
+SSL_state_string
+SSL_state_string_long
+X509_VERIFY_PARAM_get_flags
+SSL_get_ex_data_X509_STORE_CTX_idx
+SSL_set_ex_data
+SSL_is_init_finished
+SSL_do_handshake
+SSL_get_rbio
+SSL_get_peer_certificate
+SSL_get0_alpn_selected
+SSL_get_peer_cert_chain
+SSL_get_ex_data
+SSL_session_reused
+SSL_set_info_callback
+SSL_set_connect_state
+SSL_set_session
+SSL_set_accept_state
+TLS_method
+SSL_CTX_sess_set_new_cb
+SSL_CTX_set_cert_store
+SSL_CTX_get_cert_store
+X509_VERIFY_PARAM_set_flags
+SSL_CTX_set_keylog_callback
+SSL_CTX_set_alpn_protos
+SSL_CTX_set_session_id_context
+SSL_CTX_callback_ctrl
+SSL_CTX_set_alpn_select_cb
+SSL_CTX_set_client_CA_list
+SSL_set_SSL_CTX
+SSL_read
+HMAC_CTX_new
+HMAC_Init_ex
+HMAC_Update
+HMAC_Final
+HMAC_CTX_free
+d2i_SSL_SESSION
+i2d_SSL_SESSION
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+__tls_get_addr
+libacciscossl.so
+OPENSSL_1_1_1
+OPENSSL_1_1_0
+asio.sslH
+lb-tokenI9
+tokenRatL
+:authoriI9E
+token_ur
+token_in
+t_secretH
+:authoriH9
+lb-tokenH9
+token_tyL
+:authoriH9
+lb-tokenH9
+:authoriH9
+lb-tokenH9
+authoritH
+authoritH
+:authoriH9
+lb-tokenI9
+authoritH
+:authoriH9
+lb-tokenI9
+questSSLH
+:authoriI9
+lb-tokenI9
+AuthorizM
+:authoriH9
+lb-tokenH9
+:authoriH
+lb-tokenH9
+UNAUTHENH
+asio.ssl
+asio.ssl.stream
+St15_Sp_counted_ptrIPN5boost4asio3ssl6detail17openssl_init_base7do_initELN9__gnu_cxx12_Lock_policyE2EE
+Service not founSocket type not pe not supportedasio.addrinfo erstream truncatedunspecified systunexpected resulasio.ssl.stream Host not found ( (authoritative)non-authoritative), try again laThe query is valid, but it does not have associaA non-recoverable error occurred during databaseasio.netdb errorElement not founThe descriptor does not fit into the select callct call's fd_set
+asio.ssl error
+Host not found (non-authoritative), try again later
+Host not found (authoritative)
+asio.ssl.stream error
+../Exporter/EXporterDTLSTransport.cpp
+SSL_write failed with error %d
+SSL_CTX_get_ex_new_index failed
+Failed to create SSL structure
+SSL_connect failed to connect to  %s (resolved to %s) with error %d
+Agent is running in mTLS mode but collector isn't. Verify the configurations.
+Failed to get client certificates for mTLS connection
+SSL_get_SSL_CTX unable to get cert context
+SSL_get_client_CA_list returned NULL
+SSL_CTX_add_extra_chain_cert failed
+Unable to verify server certificate due to invalid NULL parameter.
+Failed to create SSL context
+/etc/ssl/certs
+/etc/pki/tls/certs
+/etc/ssl/ca-bundle.pem
+/etc/ssl/private
+/etc/pki/tls/private
+updateMTLSConfig
+certVerifyCallback
+21ExporterDTLSTransport
+NES_AUTH_PROXY_DETECTED
+STATE_AUTHENTICATING
+N5boost12noncopyable_10base_tokenE
+token is not a number
+token overflow
+parse_number_token
+past-the-end token not supported
+char boost::json::detail::pointer_token::iterator::operator*() const
+bool boost::json::detail::is_past_the_end_token(const char*, const char*)
+std::size_t boost::json::detail::parse_number_token(boost::json::string_view, boost::json::error_code&)
+boost::json::detail::pointer_token::pointer_token(boost::json::string_view)
+std::pair<boost::json::key_value_pair*, long unsigned int> boost::json::detail::find_in_object(const boost::json::object&, CharRange) [with CharRange = pointer_token]
+verifying file signature: file = [%s], signer = [%s]
+unable to verify the file signature.
+unable to verify the certificate trust.
+verify_cb
+Major error in OpenSSL
+file_verify_with_killdate
+verify_info_new
+verify_signature
+EVP_VerifyInit failed
+EVP_VerifyUpdate failed
+verify_cert
+/etc/pki/tls
+verify_timestamp
+COpenSSLCryptoPlugin
+20COpenSSLCryptoPlugin
+RefreshToken hasn't succeeded hence can't set status to [%s], setting it to UNKNOWN instead
+nvmgrpc.NVMClientHeader.token
+Failed to refresh CM Token.
+UpdateCMToken
+Failed to extract CM Token.
+NVM-CMID CM Token is %s
+NVM-TRACE-FLOWS: Current Token is Expired
+NVM-TRACE-FLOWS: Current Token is Invalid
+N5boost9algorithm6detail13token_finderFINS1_10is_any_ofFIcEEEE
+GetProcessList
+Auth Proxy Detected
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/third_party/protobuf/src/google/protobuf/io/tokenizer.h
+).  Contact the program author for an update.  If you compiled the program yourself, make sure that your headers are from the same version of Protocol Buffers as your link-time library.  (Version verification failed in "
+Cannot skip field value, unexpected token: 
+token_exchange_service_uri
+subject_token_path
+subject_token_type
+requested_token_type
+actor_token_path
+actor_token_type
+*ZN4grpc32MetadataCredentialsPluginWrapper11GetMetadataEPv26grpc_auth_metadata_contextPFvS1_PK13grpc_metadatam16grpc_status_codePKcES1_PS3_PmPS6_PS8_EUlvE_
+grpc_call_credentials did not provide debug striMetadataCredentialsPlugin did not provide a debuoptions cannot bnnot be nullptr.token_exchange_service_uri must st be specified.subject_token_path must be specisubject_token_type must be speciSTS_CREDENTIALS environment variariable not set./home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/cpp/common/channel_arguments.cc
+grpc.default_compression_algoritgrpc.grpclb_falllback_timeout_msgrpc.max_receivee_message_lengthgrpc.max_send_med_message_lengthgrpc.resource_qugrpc.primary_usegrpc.lb_policy_ngrpc.service_conN4grpc11AuthContextE
+N4grpc17SecureAuthContextE
+grpc.ssl_target_et_name_overrideoptions != nullptr
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/cpp/common/tls_credentials_options.cc
+grpc.default_authority
+:authority
+lb-token
+.maxTokens
+.tokenRatio
+test.authority
+authority not present in channel args
+proxy-authenticate
+proxy-authorization
+www-authenticate
+UNAUTHENTICATED
+TIMER CHECK BEGIN: now=%ld next=%s tls_min=%ld glob_min=%ld
+grpc_call_auth_context(call=%p)
+grpc_auth_context_peer_identity_property_name(ctx=%p)
+grpc_auth_context_peer_is_authenticated(ctx=%p)
+grpc_auth_context_property_iterator(ctx=%p)
+grpc_auth_property_iterator_next(it=%p)
+grpc_auth_context_find_properties_by_name(ctx=%p, name=%s)
+grpc_auth_context_set_peer_identity_property_name(ctx=%p, name=%s)
+Property name %s not found in auth context.
+grpc_auth_context_peer_identity(ctx=%p)
+grpc_auth_context_add_property(ctx=%p, name=%s, value=%*.*s, value_length=%lu)
+grpc_auth_context_add_cstring_property(ctx=%p, name=%s, value=%s)
+grpc_auth_context_release(context=%p)
+grpc.auth_context
+Authorization
+requested_token_type=%s
+subject_token_type=%s
+subject_token=%s
+token_url field not present.
+token_lifetime_seconds
+Fetch external account credentials access token
+Missing or invalid accessToken in %s.
+{"access_token":"%s","expires_in":%d,"token_type":"Bearer"}
+Invalid token exchange response: 
+Invalid token exchange response: JSON type is not object
+Missing or invalid access_token in %s.
+Invalid token url: %s. Error: %s
+urn:ietf:params:oauth:grant-type:token-exchange
+urn:ietf:params:oauth:token-type:access_token
+subject_token_type field not present.
+subject_token_type field must be a string.
+token_url field must be a string.
+token_lifetime_seconds must be a number
+token_lifetime_seconds must be less than %ds
+token_lifetime_seconds must be more than %ds
+*ZN9grpc_core26ExternalAccountCredentials12fetch_oauth2EP33grpc_credentials_metadata_requestP19grpc_polling_entityPFvPvN4absl12lts_202308026StatusEENS_9TimestampEEUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_E_
+https://www.googleapis.com/auth/h/cloud-platformservice_account_impersonation_urcredential_sourcquota_project_idworkforce_pool_uool_user_project
+Subject token field not present.
+Subject token field must be a string.
+format.subject_token_field_name field must be present if the format is in Json.
+format.subject_token_field_name field must be a string.
+subject_token_fi
+Missing HTTPRequestContext to start subject token retrieval.
+ssl_creds != nullptr
+grpc_service_account_jwt_access_credentials_create_from_auth_json_key failed
+grpc_refresh_token_credentials_create_from_auth_refresh_token failed
+token != nullptr
+authority_selector != nullptr
+x-goog-iam-authority-selector
+GoogleIAMCredentials{Token:%s,AuthoritySelector:%s}
+grpc_iam_credentials_create(token=%s, authority_selector=%s, reserved=%p)
+x-goog-iam-authorization-token
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/lib/security/credentials/jwt/json_token.cc
+Could not write into openssl BIO.
+Cropping token lifetime to maximum allowed value.
+Cropping token lifetime to maximum allowed value (%d secs).
+grpc_service_account_jwt_access_credentials_create(json_key=%s, token_lifetime=gpr_timespec { tv_sec: %ld, tv_nsec: %d, clock_type: %d }, reserved=%p)
+GoogleComputeEngineTokenFetcherCredentials{%s}
+GoogleRefreshToken{ClientID:%s,%s}
+StsTokenFetcherCredentials{Path:%s,Authority:%s,%s}
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/lib/security/credentials/oauth2/oauth2_credentials.cc
+Invalid input for refresh token credentials creation
+grpc_access_token_credentials_create(access_token=<redacted>, reserved=%p)
+Missing or invalid access_token in JSON.
+Missing or invalid token_type in JSON.
+Error occurred when fetching oauth2 token.
+ client_secret: <redacted>
+ refresh_token: <redacted>
+grpc_refresh_token_credentials_create(json_refresh_token=%s, reserved=%p)
+client_id=%s&client_secret=%s&refresh_token=%s&grant_type=refresh_token
+grant_type=urn:ietf:params:oauth:grant-type:token-exchange&subject_token=%s&subject_token_type=%s
+subject_token needs to be specified
+subject_token_type needs to be specified
+*N12_GLOBAL__N_145grpc_compute_engine_token_fetcher_credentialsE
+*N9grpc_core12_GLOBAL__N_126StsTokenFetcherCredentialsE
+Parsing refresh token
+authorized_user
+client_secret
+refresh_token
+oauth_fetch
+Token file %s is empty
+Token file is empty.
+actor_token
+N9grpc_core10RefCountedI40grpc_oauth2_pending_get_request_metadataNS_19PolymorphicRefCountENS_11UnrefDeleteEEE
+40grpc_oauth2_pending_get_request_metadata
+37grpc_oauth2_token_fetcher_credentials
+37grpc_google_refresh_token_credentials
+29grpc_access_token_credentials
+AccessTokenCredentials{Token:preOAuth2TokenFetchtcherCredentialsGoogleRefreshTok<Invalid json to/computeMetadata/v1/instance/service-accounts/dets/default/tokenoauth2.googleapigrpc_plugin_credentials did not provide a debug string
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/lib/security/credentials/ssl/ssl_credentials.cc
+Invalid options trying to create SSL server credentials.
+SSL server credentials options must specify either certificate config or fetcher.
+grpc_ssl_server_credentials_create_ex(pem_root_certs=%s, pem_key_cert_pairs=%p, num_key_cert_pairs=%lu, client_certificate_request=%d, reserved=%p)
+grpc_ssl_credentials_create(pem_root_certs=%s, pem_key_cert_pair=%p, verify_options=%p, reserved=%p)
+grpc.ssl_target_name_override
+grpc.ssl_session_cache
+20grpc_ssl_credentials
+27grpc_ssl_server_credentials
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/lib/security/credentials/tls/grpc_tls_credentials_options.cc
+grpc_tls_credentials_options_set_tls_session_key_log_config(options=%p)
+Enabling TLS session key logging with keys stored at: %s
+Disabling TLS session key logging
+N9grpc_core10RefCountedI28grpc_tls_credentials_optionsNS_19PolymorphicRefCountENS_11UnrefDeleteEEE
+28grpc_tls_credentials_options
+TLS credentials options is nullptr.
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/lib/security/credentials/tls/tls_credentials.cc
+Server's credentials options should not set verify_server_cert.
+14TlsCredentials
+20TlsServerCredentials
+Invalid arguments to grpc_alts_auth_context_from_tsi_peer()
+grpc_auth_context_set_peer_identity_property_name( ctx.get(), TSI_ALTS_SERVICE_ACCOUNT_PEER_PROPERTY) == 1
+Could not get ALTS auth context from TSI peer
+Invalid unauthenticated peer.
+grpc_auth_context_set_peer_identity_property_name( ctx.get(), GRPC_TRANSPORT_SECURITY_TYPE_PROPERTY_NAME) == 1
+Could not create local auth context
+Verify peer callback returned a failure (%d)
+An ssl channel needs a config and a target name.
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/lib/security/security_connector/ssl/ssl_security_connector.cc
+Failed loading SSL server credentials from fetcher.
+*N12_GLOBAL__N_135grpc_ssl_channel_security_connectorE
+*N12_GLOBAL__N_134grpc_ssl_server_security_connectorE
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/lib/security/security_connector/ssl_utils.cc
+call host does not match SSL server name
+grpc_auth_context_set_peer_identity_property_name( ctx.get(), peer_identity_property_name) == 1
+Falling back to TLS 1.2.
+ssl_alpn_selected_protocol
+ssl_session_reused
+TlsChannelSecurityConnector::cancel_check_peer: no corresponding pending request found
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/lib/security/security_connector/tls/tls_security_connector.cc
+TlsServerSecurityConnector::cancel_check_peer: no corresponding pending request found
+TlsServerCertificateWatcher getting root_cert_error: %s
+TlsServerCertificateWatcher getting identity_cert_error: %s
+TlsChannelCertificateWatcher getting root_cert_error: %s
+TlsChannelCertificateWatcher getting identity_cert_error: %s
+channel_creds is nullptr in TlsChannelSecurityConnectorCreate()
+options is nullptr in TlsChannelSecurityConnectorCreate()
+target_name is nullptr in TlsChannelSecurityConnectorCreate()
+server_creds is nullptr in TlsServerSecurityConnectorCreate()
+options is nullptr in TlsServerSecurityConnectorCreate()
+N32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceE
+N9grpc_core27TlsChannelSecurityConnector28TlsChannelCertificateWatcherE
+N9grpc_core27TlsChannelSecurityConnectorE
+N9grpc_core26TlsServerSecurityConnector27TlsServerCertificateWatcherE
+N9grpc_core26TlsServerSecurityConnectorE
+N4absl12lts_2023080219functional_internal11FrontBinderIMN9grpc_core27TlsChannelSecurityConnector29ChannelPendingVerifierRequestEFvbNS0_6StatusEEJPS5_bEEE
+N4absl12lts_2023080219functional_internal11FrontBinderIMN9grpc_core26TlsServerSecurityConnector28ServerPendingVerifierRequestEFvbNS0_6StatusEEJPS5_bEEE
+Security connector missing from client auth filter args
+Auth context missing from client auth filter args
+Established channel does not have an auth property representing a security level.
+client-auth-filter
+N9grpc_core16ClientAuthFilterE
+grpc.authorization_policy_provider
+if authority is present, path must start with a '/'
+Error Appending to TLS session key log file: %s
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/tsi/ssl/key_logging/ssl_key_logging.cc
+!tls_session_key_log_file_path_.empty()
+Ignoring TLS Key logging. ERROR Opening TLS Keylog file: %s
+N9grpc_core10RefCountedIN3tsi24TlsSessionKeyLoggerCacheENS_19PolymorphicRefCountENS_11UnrefDeleteEEE
+N9grpc_core10RefCountedIN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerENS_19PolymorphicRefCountENS_11UnrefDeleteEEE
+N3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerE
+N3tsi24TlsSessionKeyLoggerCacheE
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/tsi/ssl_transport_security.cc
+Could not add root certificate to ssl context.
+Could not allocated buffer for tsi_ssl_frame_protector.
+g_ssl_ctx_ex_factory_index != -1
+g_ssl_ctx_ex_crl_provider_index != -1
+g_ssl_ex_verified_root_cert_index != -1
+Certificate verify failed with code %d
+ssl_info_callback: error occurred.
+error getting the SSL index from the X509_STORE_CTX: %s
+Could not set verified root cert in SSL's ex_data
+Failed to read the expected number of bytes from SSL object.
+Could not allocate buffer for ssl_root_certs_store.
+SSL Context is null. Should never happen.
+Unexpected error received from first SSL_do_handshake call: %s
+error getting the SSL index from the X509_STORE_CTX while looking up Crl: %s
+error while fetching from CrlProvider. SSL object is null
+SSL_CTX_use_PrivateKey failed
+ssl_context != nullptr
+Could not create ssl context.
+TLS version is not supported.
+SSL_ERROR_NONE
+SSL_ERROR_ZERO_RETURN
+SSL_ERROR_WANT_READ
+SSL_ERROR_WANT_WRITE
+SSL_ERROR_WANT_CONNECT
+SSL_ERROR_WANT_ACCEPT
+SSL_ERROR_WANT_X509_LOOKUP
+SSL_ERROR_SYSCALL
+SSL_ERROR_SSL
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/tsi/ssl_transport_security_utils.cc
+Peer tried to renegotiate SSL connection. This is unsupported.
+SSL_write failed with error %s.
+SSL_read failed with error %s.
+Could not read from BIO after SSL_write.
+Sending protected frame to ssl failed with %d
+authority_nstrs != 0
+Proxy-Authorization:Basic 
+  %lu: %s token=%s
+grpc.internal.no_subchannel.grpclb_token_and_client_stats
+[grpclb %p] no TokenAndClientStatsArg for address %s
+Missing LB token for backend address '%s'. The empty token will be used instead
+*N9grpc_core10RefCountedINS_12_GLOBAL__N_16GrpcLb22TokenAndClientStatsArgENS_19PolymorphicRefCountENS_11UnrefDeleteEEE
+*N9grpc_core12_GLOBAL__N_16GrpcLb22TokenAndClientStatsArgE
+grpc_lb_v1_LoadBalanceResponse has too long token. len=%zu
+shuffleAddressList
+cannot parse authority 
+authority based dns uri's not supported
+google-c2p URI scheme does not support authorities
+google-c2p-experimental URI scheme does not support authorities
+authority-based URIs not supported by the %s scheme
+URI path does not contain valid data plane authority
+[xds_resolver %p] created for URI %s; data plane authority is %s
+Invalid target URI -- authority not found for 
+grpc.disable_client_authority_filter
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/ext/filters/http/client_authority_filter.cc
+GRPC_ARG_DEFAULT_AUTHORITY string channel arg. not found. Note that direct channels must explicitly specify a value for this argument.
+N9grpc_core21ClientAuthorityFilterE
+Missing :authority header
+No auth context found
+Unauthorized RPC rejected
+authenticated
+*N9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal13AuthenticatedELm1EvEE
+*N9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal13AuthenticatedEEE
+TETFTGTHTITJTKTLTMTNTOTPTQTRTSTTUTVTWTYTjTkTqTvTwTxTyTzT&T*T,T;TXTZ
+tUtVtWtYtjtktqtvtMtNtOtPtQtRtStTtEtFtGtHtItJtKtLtrtut:tBtCtD
+T=TAT_TbTdTfTgThTlTmTnTpTrTuT:TBTCTDTETFTGTHTITJTKTLTMTNTOTPTQTRTSTTUTVTWTYTjTkTqTvTwTxTyTz
+tEtFtGtHtItJtKtLtMtNtOtPtQtRtStTtltmtntptrtut:tBtCtD
+tEtFtGtHtItJtKtLtMtNtOtPtQtRtStTtUtVtWtYtjtktqtvtwtxtytzt&t*t,t;tXtZ
+tEtFtGtHtItJtKtLtMtNtOtPtQtRtStTtUtVtWtYtjtktqtvtwtxtytz
+N9grpc_core10RefCountedI29grpc_tls_certificate_providerNS_19PolymorphicRefCountENS_11UnrefDeleteEEE
+29grpc_tls_certificate_provider
+.authorities
+N9grpc_core11json_detail10AutoLoaderINS_16GrpcXdsBootstrap13GrpcAuthorityEEE
+N9grpc_core12XdsBootstrap9AuthorityE
+N9grpc_core16GrpcXdsBootstrap13GrpcAuthorityE
+N9grpc_core11json_detail24FinishedJsonObjectLoaderINS_16GrpcXdsBootstrap13GrpcAuthorityELm2EvEE
+N9grpc_core11json_detail10AutoLoaderISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16GrpcXdsBootstrap13GrpcAuthorityESt4lessIS8_ESaISt4pairIKS8_SA_EEEEE
+N9grpc_core10RefCountedI32grpc_tls_certificate_distributorNS_19PolymorphicRefCountENS_11UnrefDeleteEEE
+32grpc_tls_certificate_distributor
+authority "
+.common_tls_context
+common_tls_context=
+can't decode UpstreamTlsContext
+envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
+tls_certificate_provider_instance=%s
+.validation_context_sds_secret_config
+.tls_certificate_provider_instance
+.tls_certificate_certificate_provider_instance
+.tls_certificate_sds_secret_configs
+.verify_certificate_spki
+.verify_certificate_hash
+.tls_certificates
+.tls_params
+.authenticated.principal_name
+enableOobLoadRepoobReportingPeriweightUpdatePeriweightExpirationerrorUtilizationweighted_round_rshuffleAddressLienvoy.config.listener.v3.Listener
+{downstream_tls_context=
+common_tls_context=%s, require_client_certificate=%s
+envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext
+can't decode DownstreamTlsContext
+TLS configuration provided but no tls_certificate_provider_instance found
+%s SendMessage.GotPipe st=%s
+%s ReceiveMessage.GotPipe st=%s
+Cannot parse authority: 
+*N9grpc_core12_GLOBAL__N_143grpc_httpcli_ssl_channel_security_connectorE
+*N9grpc_core12_GLOBAL__N_125HttpRequestSSLCredentialsE
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/lib/security/authorization/audit_logging.cc
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/lib/security/authorization/evaluate_args.cc
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/lib/security/authorization/grpc_authorization_engine.cc
+N9grpc_core10RefCountedINS_19AuthorizationEngineENS_19PolymorphicRefCountENS_11UnrefDeleteEEE
+N9grpc_core19AuthorizationEngineE
+N9grpc_core23GrpcAuthorizationEngineE
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/lib/security/authorization/grpc_server_authz_filter.cc
+Failed to get authorization provider.
+Unauthorized RPC request rejected.
+grpc_authz_api
+grpc-server-authz
+N9grpc_core21GrpcServerAuthzFilterE
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/lib/security/authorization/matchers.cc
+N9grpc_core20AuthorizationMatcherE
+N9grpc_core26AlwaysAuthorizationMatcherE
+N9grpc_core23AndAuthorizationMatcherE
+N9grpc_core22OrAuthorizationMatcherE
+N9grpc_core23NotAuthorizationMatcherE
+N9grpc_core28MetadataAuthorizationMatcherE
+N9grpc_core26HeaderAuthorizationMatcherE
+N9grpc_core22IpAuthorizationMatcherE
+N9grpc_core24PortAuthorizationMatcherE
+N9grpc_core33AuthenticatedAuthorizationMatcherE
+N9grpc_core33ReqServerNameAuthorizationMatcherE
+N9grpc_core24PathAuthorizationMatcherE
+N9grpc_core26PolicyAuthorizationMatcherE
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/lib/security/authorization/stdout_logger.cc
+{"grpc_audit_log":{"timestamp":"%s","rpc_method":"%s","principal":"%s","policy_name":"%s","matched_rule":"%s","authorized":%s}}
+N9grpc_core22TlsChannelCredsFactory9TlsConfigE
+N9grpc_core11json_detail10AutoLoaderINS_22TlsChannelCredsFactory9TlsConfigEEE
+N9grpc_core22TlsChannelCredsFactoryE
+N9grpc_core11json_detail24FinishedJsonObjectLoaderINS_22TlsChannelCredsFactory9TlsConfigELm4EvEE
+N9grpc_core11json_detail10AutoLoaderINS_13RefCountedPtrINS_22TlsChannelCredsFactory9TlsConfigEEEEE
+grpc_server_credentials_set_auth_metadata_processor(creds=%p, processor=grpc_auth_metadata_processor { process: %p, state: %p })
+x-aws-ec2-metadata-token-ttl-seconds
+Missing or invalid SecretAccessKey in %s.
+Missing or invalid Token in %s.
+AWS_SECRET_ACCESS_KEY
+x-aws-ec2-metadata-token
+imdsv2_session_token_url
+x-amz-security-token
+AWS_SESSION_TOKEN
+SecretAccessKey
+AWS4-HMAC-SHA256
+AWS4-HMAC-SHA256
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/lib/security/credentials/tls/grpc_tls_certificate_distributor.cc
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/lib/security/credentials/tls/grpc_tls_certificate_provider.cc
+grpc_tls_certificate_provider_release(provider=%p)
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/lib/security/credentials/tls/grpc_tls_certificate_verifier.cc
+grpc_tls_certificate_verifier_release(verifier=%p)
+N9grpc_core10RefCountedI29grpc_tls_certificate_verifierNS_19PolymorphicRefCountENS_11UnrefDeleteEEE
+29grpc_tls_certificate_verifier
+*Z36grpc_tls_certificate_verifier_verifyEUlN4absl12lts_202308026StatusEE_
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/lib/security/credentials/tls/tls_utils.cc
+Authority (host) '%s' != Fake Security Target override '%s'
+Authority (host) '%s' != Target '%s'
+/etc/openssl/certs
+/etc/pki/tls/cacert.pem
+/etc/ssl/certs/ca-certificates.crt
+/etc/pki/tls/certs/ca-bundle.crt
+/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
+auth_context != nullptr
+server-auth
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/lib/security/transport/server_auth_filter.cc
+%s[server-auth]: Delegate to application: filter=%p this=%p auth_ctx=%p
+Authentication metadata processing failed.
+response_md in auth metadata processing not supported for now. Ignoring...
+N9grpc_core16ServerAuthFilterE
+N9grpc_core5Arena14ManagedNewImplINS_16ServerAuthFilter18RunApplicationCode5StateEEE
+Missing :authority or :path
+Setting authenticated associated data failed.
+Openssl wrote some unexpected bytes.
+Setting authenticated associated data failed
+SslSessionLRUCache capacity is zero. SSL sessions cannot be resumed.
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/tsi/ssl/session_cache/ssl_session_cache.cc
+Attempted to put null SSL session in session cache.
+N9grpc_core9CppImplOfIN3tsi18SslSessionLRUCacheENS1_21tsi_ssl_session_cacheEEE
+N9grpc_core10RefCountedIN3tsi18SslSessionLRUCacheENS_19PolymorphicRefCountENS_11UnrefDeleteEEE
+N3tsi18SslSessionLRUCacheE
+/home/build/p4files/ngc/Raccoon/third-party/grpc/grpc/src/core/tsi/ssl/session_cache/ssl_session_openssl.cc
+N3tsi16SslCachedSessionE
+*N3tsi12_GLOBAL__N_120OpenSslCachedSessionE
+tls_contextR
+xds/core/v3/authority.proto
+max_tokens
+.google.protobuf.UInt32ValueR	maxTokens
+authorities
+.xds.core.v3.AuthorityR
+authorities
+	authority
+R	authority
+SslCredentials
+7envoy.api.v2.core.GrpcService.GoogleGrpc.SslCredentials
+ssl_credentials
+2;.envoy.config.core.v3.GrpcService.GoogleGrpc.SslCredentialsH
+sslCredentials
+access_token
+accessToken
+google_refresh_token
+googleRefreshToken
+token_lifetime_seconds
+tokenLifetimeSeconds:b
+authorization_token
+authorizationToken
+authority_selector
+authoritySelector:T
+token_exchange_service_uri
+tokenExchangeServiceUri
+requested_token_type
+requestedTokenType
+subject_token_path
+subjectTokenPath
+subject_token_type
+subjectTokenType
+actor_token_path
+actorTokenPath
+actor_token_type
+actorTokenType:J
+tls_options
+2,.envoy.config.core.v3.HealthCheck.TlsOptionsR
+tlsOptions
+	authority
+R	authority
+TlsOptions
+(envoy.api.v2.core.HealthCheck.TlsOptions:$
+)envoy/config/accesslog/v3/accesslog.proto
+2$.envoy.config.accesslog.v3.AccessLogR	accessLog
+tls_context"
+require_tls
+25.envoy.config.route.v3.VirtualHost.TlsRequirementTypeB
+requireTls
+TlsRequirementType
+tls_context
+28.envoy.config.route.v3.RouteMatch.TlsContextMatchOptionsR
+tlsContext
+TlsContextMatchOptions
+4envoy.api.v2.route.RouteMatch.TlsContextMatchOptions
+)envoy/config/accesslog/v3/accesslog.proto
+2$.envoy.config.accesslog.v3.AccessLogR
+2H.envoy.extensions.filters.http.router.v3.Router.UpstreamAccessLogOptionsR
+UpstreamAccessLogOptions
+)envoy/config/accesslog/v3/accesslog.proto
+2$.envoy.config.accesslog.v3.AccessLogR	accessLog
+accessLogFlushInterval
+flushAccessLogOnNewRequest
+2f.envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.HcmAccessLogOptionsR
+accessLogOptions
+HcmAccessLogOptions
+accessLogFlushInterval
+flushAccessLogOnNewRequest
+2*.envoy.config.accesslog.v3.AccessLogFilterB
+envoy/extensions/transport_sockets/tls/v3/tls.proto
+3envoy/extensions/transport_sockets/tls/v3/tls.proto
+)envoy.extensions.transport_sockets.tls.v3
+6envoy/extensions/transport_sockets/tls/v3/common.proto
+6envoy/extensions/transport_sockets/tls/v3/secret.proto
+UpstreamTlsContext
+common_tls_context
+2;.envoy.extensions.transport_sockets.tls.v3.CommonTlsContextR
+commonTlsContext
+$envoy.api.v2.auth.UpstreamTlsContext"
+DownstreamTlsContext
+common_tls_context
+2;.envoy.extensions.transport_sockets.tls.v3.CommonTlsContextR
+commonTlsContext
+2?.envoy.extensions.transport_sockets.tls.v3.TlsSessionTicketKeysH
+%session_ticket_keys_sds_secret_config
+2:.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfigH
+R sessionTicketKeysSdsSecretConfig
+2P.envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext.OcspStaplePolicyB
+&envoy.api.v2.auth.DownstreamTlsContextB
+	TlsKeyLog
+CommonTlsContext
+tls_params
+28.envoy.extensions.transport_sockets.tls.v3.TlsParametersR	tlsParams
+tls_certificates
+29.envoy.extensions.transport_sockets.tls.v3.TlsCertificateR
+tlsCertificates
+"tls_certificate_sds_secret_configs
+2:.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfigR
+tlsCertificateSdsSecretConfigs
+!tls_certificate_provider_instance
+2L.envoy.extensions.transport_sockets.tls.v3.CertificateProviderPluginInstanceR
+tlsCertificateProviderInstance
+$tls_certificate_certificate_provider
+2O.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderB
+3.0R!tlsCertificateCertificateProvider
+-tls_certificate_certificate_provider_instance
+2W.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderInstanceB
+3.0R)tlsCertificateCertificateProviderInstance
+2G.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContextH
+$validation_context_sds_secret_config
+2:.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfigH
+R validationContextSdsSecretConfig
+2`.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CombinedCertificateValidationContextH
+2O.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderB
+2W.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderInstanceB
+24.envoy.extensions.transport_sockets.tls.v3.TlsKeyLogR
+2G.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContextB
+$validation_context_sds_secret_config
+2:.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfigB
+R validationContextSdsSecretConfig
+2O.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderB
+2W.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderInstanceB
+Genvoy.api.v2.auth.CommonTlsContext.CombinedCertificateValidationContext:)
+"envoy.api.v2.auth.CommonTlsContextB
+7io.envoyproxy.envoy.extensions.transport_sockets.tls.v3B
+TlsProtoP
+ZVgithub.com/envoyproxy/go-control-plane/envoy/extensions/transport_sockets/tls/v3;tlsv3
+proto3xds/core/v3/authority.proto
+xds/core/v3/authority.proto
+	Authority
+AuthorityProtoP
+	authority
+(	R	authority
+envoy/config/accesslog/v3/accesslog.proto
+)envoy/config/accesslog/v3/accesslog.proto
+envoy.config.accesslog.v3
+'envoy/data/accesslog/v3/accesslog.proto
+	AccessLog
+2*.envoy.config.accesslog.v3.AccessLogFilterR
+*envoy.config.filter.accesslog.v2.AccessLogB
+AccessLogFilter
+2+.envoy.config.accesslog.v3.StatusCodeFilterH
+2).envoy.config.accesslog.v3.DurationFilterH
+2/.envoy.config.accesslog.v3.NotHealthCheckFilterH
+2*.envoy.config.accesslog.v3.TraceableFilterH
+2(.envoy.config.accesslog.v3.RuntimeFilterH
+2$.envoy.config.accesslog.v3.AndFilterH
+2#.envoy.config.accesslog.v3.OrFilterH
+2'.envoy.config.accesslog.v3.HeaderFilterH
+2-.envoy.config.accesslog.v3.ResponseFlagFilterH
+2+.envoy.config.accesslog.v3.GrpcStatusFilterH
+2*.envoy.config.accesslog.v3.ExtensionFilterH
+2).envoy.config.accesslog.v3.MetadataFilterH
+2(.envoy.config.accesslog.v3.LogTypeFilterH
+0envoy.config.filter.accesslog.v2.AccessLogFilterB
+2..envoy.config.accesslog.v3.ComparisonFilter.OpB
+1envoy.config.filter.accesslog.v2.ComparisonFilter"
+2+.envoy.config.accesslog.v3.ComparisonFilterB
+1envoy.config.filter.accesslog.v2.StatusCodeFilter"
+2+.envoy.config.accesslog.v3.ComparisonFilterB
+/envoy.config.filter.accesslog.v2.DurationFilter"T
+5envoy.config.filter.accesslog.v2.NotHealthCheckFilter"J
+0envoy.config.filter.accesslog.v2.TraceableFilter"
+.envoy.config.filter.accesslog.v2.RuntimeFilter"
+2*.envoy.config.accesslog.v3.AccessLogFilterB
+*envoy.config.filter.accesslog.v2.AndFilter"
+2*.envoy.config.accesslog.v3.AccessLogFilterB
+)envoy.config.filter.accesslog.v2.OrFilter"
+-envoy.config.filter.accesslog.v2.HeaderFilter"
+3envoy.config.filter.accesslog.v2.ResponseFlagFilter"
+22.envoy.config.accesslog.v3.GrpcStatusFilter.StatusB
+UNAUTHENTICATED
+1envoy.config.filter.accesslog.v2.GrpcStatusFilter"
+/envoy.config.filter.accesslog.v2.MetadataFilter"v
+2&.envoy.data.accesslog.v3.AccessLogTypeB
+0envoy.config.filter.accesslog.v2.ExtensionFilterB
+'io.envoyproxy.envoy.config.accesslog.v3B
+AccesslogProtoP
+ZLgithub.com/envoyproxy/go-control-plane/envoy/config/accesslog/v3;accesslogv3
+authenticated
+2-.envoy.config.rbac.v3.Principal.AuthenticatedH
+authenticated
+Authenticated
+,envoy.config.rbac.v2.Principal.AuthenticatedJ
+envoy/data/accesslog/v3/accesslog.proto
+'envoy/data/accesslog/v3/accesslog.proto
+envoy.data.accesslog.v3
+TCPAccessLogEntry
+2(.envoy.data.accesslog.v3.AccessLogCommonR
+2-.envoy.data.accesslog.v3.ConnectionPropertiesR
+)envoy.data.accesslog.v2.TCPAccessLogEntry"
+HTTPAccessLogEntry
+2(.envoy.data.accesslog.v3.AccessLogCommonR
+27.envoy.data.accesslog.v3.HTTPAccessLogEntry.HTTPVersionR
+2..envoy.data.accesslog.v3.HTTPRequestPropertiesR
+2/.envoy.data.accesslog.v3.HTTPResponsePropertiesR
+*envoy.data.accesslog.v2.HTTPAccessLogEntry"
+,envoy.data.accesslog.v2.ConnectionProperties"
+AccessLogCommon
+tls_properties
+2&.envoy.data.accesslog.v3.TLSPropertiesR
+tlsProperties
+2&.envoy.data.accesslog.v3.ResponseFlagsR
+2@.envoy.data.accesslog.v3.AccessLogCommon.FilterStateObjectsEntryR
+28.envoy.data.accesslog.v3.AccessLogCommon.CustomTagsEntryR
+2&.envoy.data.accesslog.v3.AccessLogTypeR
+accessLogType
+'envoy.data.accesslog.v2.AccessLogCommon"
+unauthorized_details
+23.envoy.data.accesslog.v3.ResponseFlags.UnauthorizedR
+unauthorizedDetails
+Unauthorized
+2:.envoy.data.accesslog.v3.ResponseFlags.Unauthorized.ReasonR
+2envoy.data.accesslog.v2.ResponseFlags.Unauthorized:,
+%envoy.data.accesslog.v2.ResponseFlags"
+TLSProperties
+tls_version
+21.envoy.data.accesslog.v3.TLSProperties.TLSVersionR
+tlsVersion
+tls_cipher_suite
+tlsCipherSuite
+tls_sni_hostname
+tlsSniHostname
+2<.envoy.data.accesslog.v3.TLSProperties.CertificatePropertiesR
+2<.envoy.data.accesslog.v3.TLSProperties.CertificatePropertiesR
+tls_session_id
+tlsSessionId
+2K.envoy.data.accesslog.v3.TLSProperties.CertificateProperties.SubjectAltNameR
+Jenvoy.data.accesslog.v2.TLSProperties.CertificateProperties.SubjectAltNameB
+;envoy.data.accesslog.v2.TLSProperties.CertificateProperties"W
+TLSVersion
+%envoy.data.accesslog.v2.TLSProperties"
+	authority
+(	R	authority
+2B.envoy.data.accesslog.v3.HTTPRequestProperties.RequestHeadersEntryR
+-envoy.data.accesslog.v2.HTTPRequestProperties"
+2D.envoy.data.accesslog.v3.HTTPResponseProperties.ResponseHeadersEntryR
+2E.envoy.data.accesslog.v3.HTTPResponseProperties.ResponseTrailersEntryR
+.envoy.data.accesslog.v2.HTTPResponseProperties*
+AccessLogType
+%io.envoyproxy.envoy.data.accesslog.v3B
+AccesslogProtoP
+ZJgithub.com/envoyproxy/go-control-plane/envoy/data/accesslog/v3;accesslogv3
+envoy/extensions/transport_sockets/tls/v3/common.proto
+6envoy/extensions/transport_sockets/tls/v3/common.proto
+)envoy.extensions.transport_sockets.tls.v3
+TlsParameters
+tls_minimum_protocol_version
+2D.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocolB
+tlsMinimumProtocolVersion
+tls_maximum_protocol_version
+2D.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocolB
+tlsMaximumProtocolVersion
+TlsProtocol
+TLS_AUTO
+envoy.api.v2.auth.TlsParameters"
+$envoy.api.v2.auth.PrivateKeyProviderB
+TlsCertificate
+2=.envoy.extensions.transport_sockets.tls.v3.PrivateKeyProviderR
+ envoy.api.v2.auth.TlsCertificate"
+TlsSessionTicketKeys
+&envoy.api.v2.auth.TlsSessionTicketKeys"s
+2H.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher.SanTypeB
+2L.envoy.extensions.transport_sockets.tls.v3.CertificateProviderPluginInstanceB
+verify_certificate_spki
+verifyCertificateSpki
+verify_certificate_hash
+verifyCertificateHash
+2@.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcherR
+2^.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.TrustChainVerificationB
+only_verify_leaf_cert_crl
+onlyVerifyLeafCertCrl
+max_verify_depth
+maxVerifyDepth"F
+VERIFY_TRUST_CHAIN
+.envoy.api.v2.auth.CertificateValidationContextJ
+verify_subject_alt_nameB
+7io.envoyproxy.envoy.extensions.transport_sockets.tls.v3B
+ZVgithub.com/envoyproxy/go-control-plane/envoy/extensions/transport_sockets/tls/v3;tlsv3
+proto3envoy/extensions/transport_sockets/tls/v3/secret.proto
+6envoy/extensions/transport_sockets/tls/v3/secret.proto
+)envoy.extensions.transport_sockets.tls.v3
+6envoy/extensions/transport_sockets/tls/v3/common.proto
+GenericSecret
+secret:&
+envoy.api.v2.auth.GenericSecret"
+SdsSecretConfig
+!envoy.api.v2.auth.SdsSecretConfig"
+tls_certificate
+29.envoy.extensions.transport_sockets.tls.v3.TlsCertificateH
+tlsCertificate
+2?.envoy.extensions.transport_sockets.tls.v3.TlsSessionTicketKeysH
+2G.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContextH
+generic_secret
+28.envoy.extensions.transport_sockets.tls.v3.GenericSecretH
+genericSecret:
+envoy.api.v2.auth.SecretB
+7io.envoyproxy.envoy.extensions.transport_sockets.tls.v3B
+SecretProtoP
+ZVgithub.com/envoyproxy/go-control-plane/envoy/extensions/transport_sockets/tls/v3;tlsv3
+GRPC_SYSTEM_SSL_ROOTS_DIR
+, system_ssl_roots_dir: 
+, not_use_system_ssl_roots: 
+, ssl_cipher_suites: 
+GRPC_NOT_USE_SYSTEM_SSL_ROOTS
+GRPC_SSL_CIPHER_SUITES
+grpc_ssl_cipher_suites
+grpc_not_use_system_ssl_roots
+grpc_system_ssl_roots_dir
+GRPC_DEFAULT_SSL_ROOTS_FILE_PATH
+, default_ssl_roots_file_path: 
+TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384
+grpc_default_ssl_roots_file_path
+NVM_INVALID_TOKEN
+NVM_EXPIRED_TOKEN
+A colon separated list of cipher suites to use with OpenSSL
+Path to the default SSL roots file.
+Custom directory to SSL Roots
+nvmgrpc.NVMClientHeadercm_idtoken

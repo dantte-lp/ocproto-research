@@ -1,0 +1,1 @@
+/opt/projects/repositories/ocproto-research/binaries/5.1.12.146/extracted/linux64/cisco-secure-client-linux64-5.1.12.146/iseposture/iseposture_install.sh: POSIX shell script executable (binary data)

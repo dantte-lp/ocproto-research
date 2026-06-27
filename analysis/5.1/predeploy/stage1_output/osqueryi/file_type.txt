@@ -1,0 +1,1 @@
+/opt/projects/repositories/ocproto-research/binaries/5.1.12.146/extracted/linux64/cisco-secure-client-linux64-5.1.12.146/nvm/osqueryi: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 4.7.10, BuildID[sha1]=2824d2e698a7bc4adc5c7df491687dc8c101cba4, stripped

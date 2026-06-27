@@ -1,0 +1,27 @@
+	linux-vdso.so.1 (0x00007f1fc2260000)
+	libsystemd.so.0 => /lib64/libsystemd.so.0 (0x00007f1fc212e000)
+	libsock_fltr_api.so => not found
+	libacruntime.so => not found
+	libuuid.so.1 => /lib64/libuuid.so.1 (0x00007f1fc2124000)
+	libacciscocrypto.so => not found
+	libacciscossl.so => not found
+	libaccurl.so.4 => not found
+	libboost_system.so => not found
+	libboost_thread.so => not found
+	libboost_atomic.so => not found
+	libboost_filesystem.so => not found
+	libboost_date_time.so => not found
+	libboost_chrono.so => not found
+	libsqlite3.so.0 => /lib64/libsqlite3.so.0 (0x00007f1fc1288000)
+	libpthread.so.0 => /lib64/libpthread.so.0 (0x00007f1fc211b000)
+	librt.so.1 => /lib64/librt.so.1 (0x00007f1fc2114000)
+	libxml2.so.2 => /lib64/libxml2.so.2 (0x00007f1fc1126000)
+	libz.so.1 => /lib64/libz.so.1 (0x00007f1fc20f1000)
+	liblzma.so.5 => /lib64/liblzma.so.5 (0x00007f1fc20bd000)
+	libdl.so.2 => /lib64/libdl.so.2 (0x00007f1fc20b8000)
+	libstdc++.so.6 => /lib64/libstdc++.so.6 (0x00007f1fc0e00000)
+	libm.so.6 => /lib64/libm.so.6 (0x00007f1fc1078000)
+	libgcc_s.so.1 => /lib64/libgcc_s.so.1 (0x00007f1fc2089000)
+	libc.so.6 => /lib64/libc.so.6 (0x00007f1fc0c27000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f1fc2262000)
+	libcap.so.2 => /lib64/libcap.so.2 (0x00007f1fc0c1a000)

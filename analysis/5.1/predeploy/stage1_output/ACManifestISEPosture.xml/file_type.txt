@@ -1,0 +1,1 @@
+/opt/projects/repositories/ocproto-research/binaries/5.1.12.146/extracted/linux64/cisco-secure-client-linux64-5.1.12.146/iseposture/ACManifestISEPosture.xml: XML 1.0 document, ASCII text

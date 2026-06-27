@@ -1,0 +1,5 @@
+Estimated function count: 0
+0
+Binary size: 7603 bytes
+String count: 77
+Keyword matches: 0

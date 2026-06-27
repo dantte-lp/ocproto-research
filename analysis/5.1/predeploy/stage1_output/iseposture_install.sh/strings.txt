@@ -1,0 +1,189 @@
+#!/bin/sh
+BASH_BASE_SIZE=0x00002054
+CISCO_AC_TIMESTAMP=0x0000000068cc7317
+CISCO_AC_OBJNAME=iseposture_install.sh                                                                                                                                                                                                                                           
+# BASH_BASE_SIZE=0x00000000 is required for signing
+# the comment is after or else the code signing tool will find the comment
+csc_vercmp() 
+    ver_from="${1:?missing from-version}"
+    ver_to="${2:?missing to-version}"
+    if [ "$ver_from" = "$ver_to" ]; then
+        echo same
+    else
+        ver_min="$(printf '%s\n' "$ver_from" "$ver_to" | sort -V | head -n1)"
+        if [ "$ver_min" = "$ver_from" ]; then
+            echo older
+        else
+            echo newer
+        fi
+AC_INSTPREFIX="/opt/cisco/anyconnect"
+AC_ISEPOSTURE_PROFILEDIR="${AC_INSTPREFIX}/iseposture"
+AC_ISEPOSTURE_SCRIPTDIR="${AC_ISEPOSTURE_PROFILEDIR}/scripts"
+CSC_INSTPREFIX="/opt/cisco/secureclient"
+CSC_BINDIR="${CSC_INSTPREFIX}/bin"
+CSC_LIBDIR="${CSC_INSTPREFIX}/lib"
+CSC_PLUGINDIR="${CSC_BINDIR}/plugins"
+CSC_ISEPOSTURE_PROFILEDIR="${CSC_INSTPREFIX}/iseposture"
+CSC_ISEPOSTURE_SCRIPTDIR="${CSC_ISEPOSTURE_PROFILEDIR}/scripts"
+ISEBINFILES="csc_iseposture csc_iseagentd iseposture_uninstall.sh manifesttool_iseposture"
+ISELIBFILES="libacise.so"
+ISEPLUGINFILES="libacisectrl.so libaciseshim.so"
+ISEPOSTUREMANIFEST="ACManifestISEPosture.xml"
+ISEMIGRATIONFILES="ISEPostureCFG.xml ConnectionData.xml DGCacheRecords.xml ISEPreferences.xml"
+VPNMANIFEST="${CSC_INSTPREFIX}/ACManifestVPN.xml"
+LOGFNAME=`date "+csc-linux64-5.1.12.146-iseposture-%H%M%S%d%m%Y.log"`
+CLIENTNAME="Cisco Secure Client - ISE Posture"
+CURRENTDIR=`dirname $0 2> /dev/null`
+INST_BINDIR="${CURRENTDIR}/bin"
+INST_PLUGINDIR="${INST_BINDIR}/plugins"
+INST_LIBDIR="${CURRENTDIR}/lib"
+ARG_NO_LICENSE=0
+if [ "x$1" = "x--no-license" ]; then
+    ARG_NO_LICENSE=1
+echo "Installing ${CLIENTNAME}..."
+echo "Installing ${CLIENTNAME}..." > /tmp/${LOGFNAME}
+echo `whoami` "invoked $0 from " `pwd` " at " `date` >> /tmp/${LOGFNAME}
+# Check for root privileges
+if [ `id | sed -e 's/(.*//'` != "uid=0" ]; then
+  echo "Sorry, you need super user privileges to run this script."
+  echo "Sorry, you need super user privileges to run this script." >> /tmp/${LOGFNAME}
+  exit 1
+# ISE Posture requires VPN to be installed. We check the presence of the vpn manifest file to check if it is installed.
+if [ ! -f ${VPNMANIFEST} ]; then
+    echo "AnyConnect VPN should be installed before ISE Posture installation. Install Cisco Secure Client - AnyConnect VPN to proceed."
+    echo "Exiting now."
+    echo "AnyConnect VPN should be installed before ISE Posture installation. Install Cisco Secure Client - AnyConnect VPN to proceed." >> /tmp/${LOGFNAME}
+    echo "Exiting now." >> /tmp/${LOGFNAME}
+    exit 1
+failed=false
+# version of ise posture being installed has to be same as installed VPN version
+if [ -f "${CURRENTDIR}/${ISEPOSTUREMANIFEST}" ] && [ -f ${VPNMANIFEST} ]; then
+    VPNVERSION=$(awk -F"\"" '/file version/ { print $2 }' ${VPNMANIFEST})
+    ISECURRVERSION=$(awk -F"\"" '/file version/ { print $2 }' ${CURRENTDIR}/${ISEPOSTUREMANIFEST})
+    vpn_ver="$(csc_vercmp "$VPNVERSION" "$ISECURRVERSION")"
+    if [ "$vpn_ver" != same ]; then
+     failed=true
+if [ "$failed" = true ]; then
+    echo "Please use ise posture installer from Cisco Secure Client package with version ${VPNVERSION} for the installation"
+    echo "Please use ise posture installer from Cisco Secure Client package with version ${VPNVERSION} for the installation" >> /tmp/${LOGFNAME}
+    echo "Exiting now."
+    echo "Exiting now." >> /tmp/${LOGFNAME}
+    exit 1
+if [ "x${ARG_NO_LICENSE}" = "x1" ]; then
+    echo "Skipping license text ..."
+    if [ -f "license.txt" ]; then
+        cat ./license.txt
+        echo
+        echo -n "Do you accept the terms in the license agreement? [y/n] "
+        read LICENSEAGREEMENT
+        while :
+        do
+          case ${LICENSEAGREEMENT} in
+               [Yy][Ee][Ss] | [Yy])
+                       echo "You have accepted the license agreement."
+                       echo "Please wait while ${CLIENTNAME} is being installed..."
+                       break
+                       ;;
+               [Nn][Oo] | [Nn])
+                       echo "The installation was cancelled because you did not accept the license agreement."
+                       echo "The installation was cancelled because you did not accept the license agreement." >> /tmp/${LOGFNAME}
+                       exit 1
+                       ;;
+               *)
+                       echo "Please enter either \"y\" or \"n\"."
+                       read LICENSEAGREEMENT
+                       ;;
+          esac
+        done
+    else
+        echo "License file not found. Aborting installation."
+        echo "License file not found. Aborting installation." >> /tmp/${LOGFNAME}
+        exit 1
+if [ -x "/usr/bin/install" ]; then
+    INSTALL="/usr/bin/install"
+elif [ -x "/bin/install" ]; then
+    INSTALL="/bin/install"
+elif [ -x "/usr/local/bin/install" ]; then
+    INSTALL="/usr/local/bin/install"
+    INSTALL="install"
+${INSTALL} --help 2> /dev/null > /dev/null
+if [ $? != 0 ]; then
+    INSTALL=""
+echo "Creating directories... "
+echo "Creating directories... " >> /tmp/${LOGFNAME}
+if [ "x${INSTALL}" = "x" ]; then
+    echo "Unable to find install command. Aborting installation."
+    echo "Unable to find install command. Aborting installation." >> /tmp/${LOGFNAME}
+    exit 1
+# Make sure destination directories exist
+echo "Installing "${CSC_BINDIR} >> /tmp/${LOGFNAME}
+${INSTALL} -d ${CSC_BINDIR} || exit 1
+echo "Installing "${CSC_LIBDIR} >> /tmp/${LOGFNAME}
+${INSTALL} -d ${CSC_LIBDIR} || exit 1
+echo "Installing "${CSC_PLUGINDIR} >> /tmp/${LOGFNAME}
+${INSTALL} -d ${CSC_PLUGINDIR} || exit 1
+echo "Installing "${CSC_ISEPOSTURE_PROFILEDIR} >> /tmp/${LOGFNAME}
+${INSTALL} -d ${CSC_ISEPOSTURE_PROFILEDIR} || exit 1
+echo "Installing "${CSC_ISEPOSTURE_SCRIPTDIR} >> /tmp/${LOGFNAME}
+${INSTALL} -d ${CSC_ISEPOSTURE_SCRIPTDIR} || exit 1
+echo "done."
+echo "done." >> /tmp/${LOGFNAME}
+# Migrate /opt/cisco/anyconnect/iseposture/ files to /opt/cisco/secureclient/iseposture/
+for file in ${ISEMIGRATIONFILES}; do
+    if [ -f ${AC_ISEPOSTURE_PROFILEDIR}/$file ] &&
+       [ ! -f ${CSC_ISEPOSTURE_PROFILEDIR}/$file ]; then
+      echo "Migrating "${AC_ISEPOSTURE_PROFILEDIR}/$file >> /tmp/${LOGFNAME}
+      cp -f ${AC_ISEPOSTURE_PROFILEDIR}/$file ${CSC_ISEPOSTURE_PROFILEDIR}/ >/dev/null 2>&1
+if [ -d "${AC_ISEPOSTURE_SCRIPTDIR}" ]; then
+    echo "Migrating "${AC_ISEPOSTURE_SCRIPTDIR}/ >> /tmp/${LOGFNAME}
+    tar cf - -C ${AC_ISEPOSTURE_SCRIPTDIR} . | (cd ${CSC_ISEPOSTURE_SCRIPTDIR}; tar --skip-old-files -x -f -)
+echo "Copying files... "
+echo "Copying files... " >> /tmp/${LOGFNAME}
+for f in ${ISEBINFILES}; do
+    echo "Installing "${INST_BINDIR}/$f >> /tmp/${LOGFNAME}
+    ${INSTALL} -o root -m 755 ${INST_BINDIR}/$f ${CSC_BINDIR} || exit 1
+for f in ${ISELIBFILES}; do
+    echo "Installing "${INST_LIBDIR}/$f >> /tmp/${LOGFNAME}
+    ${INSTALL} -o root -m 755 ${INST_LIBDIR}/$f ${CSC_LIBDIR} || exit 1
+for f in ${ISEPLUGINFILES}; do
+    echo "Installing "${INST_PLUGINDIR}/$f >> /tmp/${LOGFNAME}
+    ${INSTALL} -o root -m 755 ${INST_PLUGINDIR}/$f ${CSC_BINDIR} || exit 1
+    mv -f ${CSC_BINDIR}/$f ${CSC_PLUGINDIR} || exit 1
+# update manifest
+echo "Updating AC manifest." >> /tmp/${LOGFNAME}
+${INSTALL} -o root -m 755 ${CURRENTDIR}/${ISEPOSTUREMANIFEST} ${CSC_INSTPREFIX} >> /tmp/${LOGFNAME}
+${INST_BINDIR}/manifesttool_iseposture -i ${CSC_INSTPREFIX} ${CSC_INSTPREFIX}/${ISEPOSTUREMANIFEST} >> /tmp/${LOGFNAME}
+# enable GUI launch at login
+if [ -f "${CSC_BINDIR}/acinstallhelper" ]; then
+    echo "Enabling Cisco Secure Client - GUI launch at login." >> /tmp/${LOGFNAME}
+    ${CSC_BINDIR}/acinstallhelper -launchAtLogin -enable
+echo "done."
+echo "done." >> /tmp/${LOGFNAME}
+echo "${CLIENTNAME} is installed successfully."
+echo "${CLIENTNAME} is installed successfully." >> /tmp/${LOGFNAME}
+# move the logfile out of the tmp directory
+mv /tmp/${LOGFNAME} ${CSC_INSTPREFIX}/.
++S!cV!j!dqeayIVDMPT!A!kfkjvddSBJJJ!V!eznRGBF
+DigiCert, Inc.1A0?
+8DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA10
+240329000000Z
+270404235959Z0v1
+Massachusetts1
+Boxborough1
+Cisco Systems, Inc.1
+Cisco Systems, Inc.0
+http://www.digicert.com/CPS0
+Mhttp://crl3.digicert.com/DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crl0S
+Mhttp://crl4.digicert.com/DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crl0
+http://ocsp.digicert.com0\
+Phttp://cacerts.digicert.com/DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt0	
+DigiCert Inc1
+www.digicert.com1!0
+DigiCert Trusted Root G40
+210429000000Z
+360428235959Z0i1
+DigiCert, Inc.1A0?
+8DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA10
+http://ocsp.digicert.com0A
+5http://cacerts.digicert.com/DigiCertTrustedRootG4.crt0C
+2http://crl3.digicert.com/DigiCertTrustedRootG4.crl0

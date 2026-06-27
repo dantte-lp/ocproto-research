@@ -1,0 +1,77 @@
+#!/bin/sh
+BASH_BASE_SIZE=0x00000b4e
+CISCO_AC_TIMESTAMP=0x0000000068cc7311
+CISCO_AC_OBJNAME=iseposture_uninstall.sh                                                                                                                                                                                                                                         
+# BASH_BASE_SIZE=0x00000000 is required for signing
+# the comment is after or else the code signing tool will find the comment
+CSC_INSTPREFIX="/opt/cisco/secureclient"
+CSC_BINDIR="${CSC_INSTPREFIX}/bin"
+CSC_LIBDIR="${CSC_INSTPREFIX}/lib"
+CSC_PLUGINDIR="${CSC_BINDIR}/plugins"
+ISEPOSTURE_PROFILEDIR="${CSC_INSTPREFIX}/iseposture"
+ISEPOSTURE_SCRIPTDIR="${ISEPOSTURE_PROFILEDIR}/scripts"
+LOGDIR="/var/log/secureclient"
+LOG="${LOGDIR}/csc_iseposture_uninstall.log"
+ISEBINFILES="csc_iseposture csc_iseagentd iseposture_uninstall.sh manifesttool_iseposture"
+ISELIBFILES="libacise.so"
+ISEPLUGINFILES="libacisectrl.so libaciseshim.so"
+# Create log directory if not exist
+if [ ! -d ${LOGDIR} ]; then
+  mkdir -p ${LOGDIR} >/dev/null 2>&1
+echo "Uninstalling Cisco Secure Client - ISE Posture..."
+echo "Uninstalling Cisco Secure Client - ISE Posture..." > "${LOG}"
+echo `whoami` "invoked $0 from " `pwd` " at " `date` >> "${LOG}"
+# Check for root privileges
+if [ `id | sed -e 's/(.*//'` != "uid=0" ]; then
+  echo "Sorry, you need super user privileges to run this script."
+  echo "Sorry, you need super user privileges to run this script." >> "${LOG}"
+  exit 1
+# update the VPNManifest.dat
+ISEPOSTUREMANIFEST="ACManifestISEPosture.xml"
+echo "${CSC_BINDIR}/manifesttool_iseposture -x ${CSC_INSTPREFIX} ${CSC_INSTPREFIX}/${ISEPOSTUREMANIFEST}" >> "${LOG}"
+${CSC_BINDIR}/manifesttool_iseposture -x ${CSC_INSTPREFIX} ${CSC_INSTPREFIX}/${ISEPOSTUREMANIFEST} >> "${LOG}"
+rm -f ${CSC_INSTPREFIX}/${ISEPOSTUREMANIFEST}
+# Remove those pre-deploy files that we may have installed
+for f in ${ISEPLUGINFILES}; do
+    if [ -e ${CSC_PLUGINDIR}/$f ]; then
+       echo "rm -rf ${CSC_PLUGINDIR}/$f" >> "${LOG}"
+       rm -rf ${CSC_PLUGINDIR}/$f >> "${LOG}" 2>&1
+for f in ${ISEBINFILES}; do
+    if [ -e ${CSC_BINDIR}/$f ]; then
+       echo "rm -rf ${CSC_BINDIR}/$f" >> "${LOG}"
+       rm -rf ${CSC_BINDIR}/$f >> "${LOG}" 2>&1
+for f in ${ISELIBFILES}; do
+    if [ -e ${CSC_LIBDIR}/$f ]; then
+       echo "rm -rf ${CSC_LIBDIR}/$f" >> "${LOG}"
+       rm -rf ${CSC_LIBDIR}/$f >> "${LOG}" 2>&1
+echo "rm -rf ${ISEPOSTURE_SCRIPTDIR}" >> "${LOG}"
+rm -rf ${ISEPOSTURE_SCRIPTDIR} >> "${LOG}" 2>&1
+# Remove ISE Posture profile directory
+# TODO AKK 3.2 FCS - Do this only for non-upgrade uninstall: rm -rf ${ISEPOSTURE_PROFILEDIR} >> "${LOG}" 2>&1
+echo "Successfully removed Cisco Secure Client - ISE Posture from the system." >> "${LOG}"
+echo "Successfully removed Cisco Secure Client - ISE Posture from the system."
++S!cV!j!dqeayIVDMPT!A!kfkjvddSBJJJ!V!eznRGBF
+DigiCert, Inc.1A0?
+8DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA10
+240329000000Z
+270404235959Z0v1
+Massachusetts1
+Boxborough1
+Cisco Systems, Inc.1
+Cisco Systems, Inc.0
+http://www.digicert.com/CPS0
+Mhttp://crl3.digicert.com/DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crl0S
+Mhttp://crl4.digicert.com/DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crl0
+http://ocsp.digicert.com0\
+Phttp://cacerts.digicert.com/DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt0	
+DigiCert Inc1
+www.digicert.com1!0
+DigiCert Trusted Root G40
+210429000000Z
+360428235959Z0i1
+DigiCert, Inc.1A0?
+8DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA10
+http://ocsp.digicert.com0A
+5http://cacerts.digicert.com/DigiCertTrustedRootG4.crt0C
+2http://crl3.digicert.com/DigiCertTrustedRootG4.crl0
+4z(U`]Zm6

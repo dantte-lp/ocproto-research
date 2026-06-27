@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vpn rev="1.0">
+  <file version="5.1.12.146" id="ISEPosture" is_core="no" type="script" action="install" module="iseposture">
+    <uri>binaries/cisco-secure-client-linux64-5.1.12.146-iseposture-webdeploy-k9.sh</uri>
+    <display-name>Cisco Secure Client - ISE Posture</display-name>
+  </file>
