@@ -1279,7 +1279,11 @@ All outputs on oel-lab-gui:
 ├── headend_downloader.jsonl   — Consolidated headend decompilation (204KB, 56 functions)
 ├── p2a_aggauth_deep.jsonl     — AggAuth deep dive: 159 functions (2.8MB)
 ├── p2a_state_handlers.jsonl   — AggAuth state handlers: 81 functions (210KB)
-└── P2A_AGGAUTH_DEEP.md        — AggAuth analysis report (615 lines, 240 functions total)
+├── P2A_AGGAUTH_DEEP.md        — AggAuth analysis report (615 lines, 240 functions total)
+├── p2b_dap_lua.jsonl          — DAP/Lua functions: 1016 functions (3.2MB)
+├── p2b_lzs_compress.jsonl     — LZS/CTM compression: 2888 functions (13MB)
+├── p2b_string_hits.jsonl      — String pattern matches: 7051 entries (850KB)
+└── P2B_DAP_LZS.md             — DAP + LZS analysis report (361 lines, 3904 functions total)
 
 /share/asac/9.24.1/workspace/ida_dbs/
 ├── lina.i64               — ASAc 9.24.1 IDB (rebuilt, also at /tmp/lina_ida/lina on oel-lab-gui)
@@ -1441,11 +1445,31 @@ Key findings:
 - [x] AAA vtable at qword_6F6A448, service ID 0x33002 (208898)
 - [x] Source: aggregate_auth_api.c, aggregate_auth_xml_generator.c + 28 other files
 
+### P2-B — DAP Lua + LZS Compression — COMPLETE (3904 functions, 2 JSONL files)
+
+Artifacts: `p2b_dap_lua.jsonl` (1016 fn, 3.2MB), `p2b_lzs_compress.jsonl` (2888 fn, 13MB)
+
+Key findings:
+- [x] DAP Lua VM: lua_newstate + 6 libs (base, io, string, table, debug, lxp) + 2 C callbacks
+- [x] 18 Lua C API functions mapped to IDA addresses
+- [x] Endpoint attributes: 12 `endpoint.anyconnect.*` from session struct (0x3B8–0x3E8)
+- [x] DAP record selection: init_session_data → add_to_lua_tree → process_async
+- [x] DAP policy from flash:/dap.xml or disk0:/dap.xml, fallback to default
+- [x] DAP merge: dap_svc_ask_fcn 5-state (Continue/AnyConnect/WebVPN/Deny/Conflict)
+- [x] DAP concat: dap_concat_fcn with configurable delimiter, attribute 4239 (0x108F)
+- [x] DAP IOCB struct: 41 fields / ~400 bytes mapped
+- [x] LuaLDAP: full LDAP client in Lua (search, attrs, filter, scope, sizelimit, timeout)
+- [x] IPE context: luaopen_math, luaopen_socket_{base,url,ltn12,http,ftp}
+- [x] LZS compress (lzsc.c): window=2048, max_record=1751, per-record mode, no CRC
+- [x] LZS decompress (lzsd.c): Duff's device copy (max 135B), bitstream decoding
+- [x] Deflate (zlib 1.2.3): windowBits=-12, memLevel=5, CRC32 big-endian validation
+- [x] CTM pipeline: Init→Compress→Reset→Terminate, per-record reset confirmed
+- [x] Output buffer formula: 13*input/100 + input + 62 (13% margin + 62B header)
+- [x] Source: dap_api.c, dap_cert_api.c, lzsc.c, lzsd.c, ctm_sw_ssl.c + 5 more
+
 ### P2 — Next Targets
 - [ ] STRAP DH key exchange (sub_38B0870, sub_38B0780)
-- [ ] LZS compress/decompress engine (lzsc.c/lzsd.c via CTM)
 - [ ] Dynamic split tunnel (domain-based DNS routing, DYN_SPLIT_TUN_*)
-- [ ] DAP Lua engine (dap_create_Lua_instance, dap_select_records)
 - [ ] Session timeout FSM (idle, session, disconnect timeout handlers)
 - [ ] MTU calculation full pipeline (sub_38B39F0 + formula chain)
 - [ ] Certificate-group-map engine (webvpn__certificate_group_map_cb)

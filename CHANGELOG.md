@@ -9,6 +9,10 @@ and [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [Unreleased]
 
 ### Added
+- P2-B DAP Lua + LZS compression results integrated into `SERVER_PROTOCOL_MAP.md`:
+  3904 functions (1016 DAP/Lua + 2888 LZS/CTM). DAP Lua VM (6 libs + LuaExpat +
+  LuaLDAP), 18 Lua C API mapped, endpoint attrs (12 fields), DAP merge (5-state),
+  LZS per-record (2048B window, 1751B max), deflate (zlib 1.2.3, CRC32), CTM pipeline.
 - P2-A AggAuth deep dive results integrated into `SERVER_PROTOCOL_MAP.md` §3.3:
   13-state FSM architecture, tunnel group resolution chain (cert→name→URL→alias→
   DefaultWEBVPNGroup), auth mode bitmask (tg+4168), user lockout (600s auto-expire),
