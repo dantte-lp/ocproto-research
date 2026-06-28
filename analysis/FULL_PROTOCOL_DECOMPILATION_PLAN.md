@@ -43,6 +43,14 @@
 | G11 | **Dynamic split tunneling** (5.1.2.42+) | P2 | src/network/dns.c |
 | G12 | **IKEv2 + Post-Quantum** (5.1.8+) | P3 | Будущее, не OpenConnect |
 | G13 | **NVM/eBPF телеметрия** (5.1.11+) | P3 | Prometheus в ioguard — другой подход |
+| G14 | **External SSO / SAML browser flow** | P1 | src/auth/ — external-sso.pkg flow |
+| G15 | **On-Demand / Always-On / TND** | P1 | Клиентский engine + серверный профиль |
+| G16 | **Per-App VPN / Application Routing** | P2 | acsockd eBPF cgroup + server config |
+| G17 | **Certificate Auth (cert-only + multi-cert)** | P1 | TLS client cert → group mapping |
+| G18 | **VPN Profile XML schema** | P1 | Полная XSD для VPN + On-Demand + DAP |
+| G19 | **VPNAPI SDK (3rd-party VPN integration)** | P2 | libvpnapi.a public API surface |
+| G20 | **Post-Quantum TLS (ML-KEM/ML-DSA)** | P3 | oqsprovider.so + CiscoSSL PQ |
+| G21 | **MST Transforms (install customization)** | P3 | 9 MST файлов — lockdown, FIPS, SBL |
 
 ---
 
@@ -406,7 +414,12 @@ struct cstp_frame {
 | Ф6 | SAML/SSO | src/auth/saml.c (new) | S7+ |
 | Ф7 | Dynamic split tunnel | src/network/dns.c, route.c | S9+ |
 | Ф8 | Posture/DAP | plugin API | Future |
-| Ф9 | VPN API SDK | reference only | — |
+| Ф10 | External SSO/SAML | src/auth/saml.c | S7+ |
+| Ф11 | On-Demand/TND | profile push в AggAuth | S7+ |
+| Ф12 | Per-App VPN | reference (client eBPF) | Future |
+| Ф13 | Certificate Auth | src/auth/cert.c (new) | S7 |
+| Ф14 | VPN Profile schema | docs/profile-schema.xsd | S7 |
+| Ф15 | VPNAPI SDK | reference only | — |
 
 ### Улучшения ioguard над Cisco ASA/ocserv
 
@@ -474,6 +487,173 @@ struct cstp_frame {
 
 ---
 
+## 4.1 CSC 5.1.17 — полная инвентаризация пакетов
+
+> Источник: `/share/secure-firewall-asa/Cisco Secure Client 5.x/5.1.17.3394/`
+
+### Пакеты webdeploy (push с ASA/FTD на клиент)
+
+| Пакет | Платформы | Размер | Назначение |
+|-------|-----------|--------|-----------|
+| `cisco-secure-client-*-webdeploy-k9.pkg` | win/macos/linux64/linux-arm64/win-arm64 | 112-188MB | Основной VPN-клиент + модули |
+| `external-sso-5.1.17.3394-webdeploy-k9.pkg` | кросс-платформ | 5.7KB | External Browser SAML/SSO |
+
+### External SSO (.pkg) — **полностью реверсирован**
+
+Минимальный ZIP (5.7KB) с двумя файлами:
+- `headinfo.txt`: `package-version=1`, `sso-start-url=index.html`, `content-security-allow=http://localhost:5885`
+- `index.html`: JS-приложение (minified bundle.js), реализующее SSO token relay
+
+**Протокол External SSO:**
+1. ASA/FTD пушит external-sso.pkg → клиент извлекает и открывает `index.html` в браузере
+2. Браузер проходит SAML-аутентификацию, получает token в cookie `acSamlv2Token`
+3. JS читает token из cookie (или из `{{AC_SAML_TOKEN}}` template substitution)
+4. Platform routing:
+   - **iOS/macOS (CSC <4.10.5000):** custom URI `anyconnectsso://externalsso?token=TOKEN`
+   - **Android/ChromeOS:** custom URI `anyconnect://externalsso?token=TOKEN`
+   - **Desktop (Win/Mac/Linux):** HTTP redirect → `http://localhost:29786/api/sso/TOKEN?return=URL`
+5. Версия клиента определяется из cookie `acvers` (default `5.0.0`)
+6. Localhost порт: **29786** (hardcoded в `ExternalSSOApi.httpPort`)
+7. Completion signal: URL parameter `?done=1` → "You can close this tab"
+
+**Для ioguard:** серверу нужно (a) push external-sso.pkg через headend/webdeploy, (b) принимать token через AggAuth SAML callback, (c) опционально иметь свой SSO HTML. Можно упростить — единый HTML без pkg.
+
+### Profile Editor (MSI)
+
+`tools-cisco-secure-client-win-5.1.17.3394-profileeditor-k9.msi` (14MB) — Windows-only GUI для создания VPN Profile XML. Содержит полную XML schema (XSD) для On-Demand, Always-On, TND, cert selection, server list, и прочих настроек. **Приоритетный артефакт для G18.**
+
+### MST Transforms
+
+`tools-cisco-secure-client-win-5.1.17.3394-transforms.zip` (79KB) — 9 MST файлов для кастомизации установки:
+
+| MST файл | Назначение |
+|----------|-----------|
+| `anyconnect-win-disable-customer-experience-feedback.mst` | Отключить телеметрию |
+| `anyconnect-win-enablefips.mst` | Включить FIPS mode |
+| `anyconnect-win-gui-desktop-shortcut.mst` | Ярлык на рабочем столе |
+| `anyconnect-win-reset-adapter-mtu.mst` | Сброс MTU адаптера |
+| `anyconnect-win-strict-cert-policy.mst` | Строгая валидация сертификатов |
+| `sbl_secure-client-win-reboot-reallysuppress.mst` | Подавить перезагрузку (SBL) |
+| `_secure-client-win-hide-addremove.mst` | Скрыть из "Programs" |
+| `_secure-client-win-lockdown.mst` | Запретить отключение VPN |
+| `_secure-client-win-reboot-reallysuppress.mst` | Подавить перезагрузку |
+
+**Для ioguard:** MST-файлы определяют конфигурационные ключи, которые ioguard клиент должен поддерживать (FIPS mode, lockdown, strict cert policy).
+
+### VPNAPI SDK
+
+`cisco-secure-client-*-vpnapi.{zip,tgz}` (18-129MB по платформам) — публичный SDK для написания 3rd-party VPN клиентов.
+
+**Состав:**
+- `include/`: 15 заголовков (api.h, ClientIfc.h, ConnectPromptInfo.h, Preference.h, VPNStats.h и др.)
+- `lib/`: статические библиотеки (libvpnapi.a, libvpncommon.a, libvpncommoncrypt.a) + OpenSSL-форк (libacciscossl.so, libacciscocrypto.so)
+- `examples/cli/`: полный CLI VPN-клиент (CLIClientMain.cpp, Makefile)
+- `doc/`: Doxygen HTML документация
+- **1.3M символов** в .symbols файлах (374K vpnapi + 797K vpncommon + 132K vpncommoncrypt)
+
+**Post-Quantum (oqsprovider.so, 2.5MB):**
+CSC 5.1.17 включает CiscoSSL OQS provider с поддержкой:
+- **KEM:** ML-KEM-512/768/1024, Kyber512/768/1024, BIKE-L1/L3/L5, HQC-128/192/256, FrodoKEM
+- **Hybrid KEM:** SecP256r1+ML-KEM-768, X25519+ML-KEM-768
+- **Signatures:** ML-DSA-44/65/87, Falcon-512/1024, SPHINCS+
+- Build path: `ciscossl-3.3.5.8.3.63/ciscoqs_provider/`
+
+**Для ioguard:** VPNAPI SDK — эталонный API surface. CLI example показывает минимальный client flow. PQ crypto определяет cipher suites для будущей совместимости.
+
+---
+
+## 4.2 Новые фазы декомпиляции (G14-G21)
+
+### Фаза 10: External SSO / SAML browser flow (G14, 1 неделя)
+
+**Статус: 80% DONE** (клиентская сторона полностью из index.html JS)
+
+**Оставшееся:**
+1. Серверная сторона в lina: как ASA генерирует SAML redirect URL, где хранит `acSamlv2Token`
+2. AggAuth XML: `<saml-auth-method>`, `<saml-redirect-url>` элементы (в P2-A scope)
+3. Localhost listener в vpnagentd: `/api/sso/{token}` endpoint (port 29786)
+4. Cookie security: `acSamlv2Token` + `acvers` — HttpOnly? Secure? SameSite?
+
+**Бинарии:** lina (server), vpnagentd (client localhost listener)
+**Результат:** `SAML_SSO_FLOW.md` (обновить существующий draft)
+
+### Фаза 11: On-Demand / Always-On / TND (G15, 2 недели)
+
+**Источники:**
+- VPNAPI SDK `api.h`: PreferenceId enum — AutomaticVPNPolicy, TrustedNetworkPolicy, TrustedDNSDomains/Servers, TrustedHttpsServerList, AlwaysOn, ConnectFailurePolicy
+- Profile Editor MSI: полная XSD для VPN Profile XML
+- vpnagentd: TND engine implementation
+
+**Задачи:**
+1. Извлечь XML schema из Profile Editor MSI (msiextract/7z → .xsd файлы)
+2. Декомпилировать TND engine в vpnagentd: DNS resolution + HTTPS probe logic
+3. Captive Portal detection: `CanRemediateCaptivePortal()` алгоритм
+4. ConnectFailurePolicy=Closed: как блокируется сеть (iptables/nftables rules)
+5. Серверная сторона: push профиля через `<vpn-profile-manifest>` в AggAuth CONFIG-REQUEST
+6. `X-CSTP-Disable-Always-On-VPN` header processing
+
+**Бинарии:** vpnagentd (client TND), lina (server profile push)
+**Результат:** `ON_DEMAND_TND.md`, `VPN_PROFILE_SCHEMA.md`
+
+### Фаза 12: Per-App VPN / Application Routing (G16, 2 недели)
+
+**Источники:**
+- CSC triage: acsockd (9.47MB) с 10 eBPF программами
+- lina strings: zero-trust per-app session tracking, Smart Tunnel
+
+**Задачи:**
+1. Извлечь BPF байткод из acsockd (embedded ELF sections)
+2. Декомпилировать BPF программы: cgroup/connect4,6, sendmsg4,6, setsockopt (866KB)
+3. Реконструировать BPF map layout (cgroup→tunnel mapping)
+4. D-Bus IPC: vpnagentd ↔ acsockd — сообщения, формат
+5. acsocktool (6.91MB): CLI для конфигурации socket filter правил
+6. Серверная сторона: Smart Tunnel applist push, zero-trust session limits
+
+**Бинарии:** acsockd + acsocktool (client), lina (server)
+**Результат:** `PER_APP_VPN_EBPF.md`
+
+### Фаза 13: Certificate Auth deep dive (G17, 2 недели)
+
+**Источники:**
+- VPNAPI SDK: AutomaticCertSelection, SCEP, PKCS12, CertificatePinning
+- lina strings: `certificate-group-map`, `certificate-authentication`, `username-from-certificate`, `DefaultCertificateMap`
+- libvpncommoncrypt.so: CCertStore, CCertificate, OCSP, CObfuscationMgr
+
+**Задачи:**
+1. Декомпилировать `webvpn__certificate_group_map_cb` в lina — cert → tunnel group mapping
+2. `crypto ca certificate map` matching engine — X.509 fields (Subject, Issuer, SAN, EKU, AD template OID)
+3. cert-only auth flow в AggAuth INIT (sub_1159B10) — TLS client cert без password
+4. Multi-cert selection UI → `ConnectPromptInfo` cert list
+5. SCEP proxy: как ASA проксирует SCEP enrollment для клиента
+6. OCSP/CRL checking на серверной стороне
+7. `ssh authentication method x509-certificate` — SSH x509 auth path
+
+**Бинарии:** lina (server cert engine), libvpncommoncrypt.a (client crypto)
+**Результат:** `CERTIFICATE_AUTH_DEEP.md`
+
+### Фаза 14: VPN Profile XML Schema (G18, 1 неделя)
+
+**Задачи:**
+1. Извлечь .xsd из Profile Editor MSI (msiextract + binwalk)
+2. Документировать полную schema: AnyConnectProfile → ServerList, AutomaticVPNPolicy, CertificateSelection, BackupServerList, AlwaysOn, etc.
+3. Сравнить с ocserv profile format
+4. Определить extension points для ioguard-specific settings
+
+**Результат:** `VPN_PROFILE_SCHEMA.md`
+
+### Фаза 15: VPNAPI SDK reverse (G19, 1 неделя)
+
+**Задачи:**
+1. Полный API surface из include/ headers (15 файлов)
+2. Event model: evtSubscribe/evtUnsubscribe, callback flow
+3. State machine: vpnState transitions (Connected/Reconnecting/Disconnecting)
+4. CLI example analysis: CLIClientMain.cpp → минимальный connect flow
+5. Symbol analysis: 1.3M строк в .symbols → public class hierarchy
+
+**Результат:** `VPNAPI_REFERENCE.md`
+
+---
+
 ## 5. Таймлайн и ресурсы
 
 ### Общий план (12 недель)
@@ -486,10 +666,15 @@ struct cstp_frame {
 | 6-7 | Ф3 | AggAuth полный цикл | 40 | IDA, Ghidra, Wireshark |
 | 8 | Ф4 | Compression negotiation | 20 | IDA, Wireshark |
 | 9 | Ф5 | Reconnect + session persistence | 20 | IDA, Frida, Wireshark |
-| 10-11 | Ф6 | SAML/SSO external browser | 30 | IDA, strace, Wireshark |
-| 12 | Ф7-Ф9 | Dynamic split, posture, VPN API | 24 | IDA, BinDiff, Reko |
+| 10-11 | Ф10 | External SSO (SAML) — серверная сторона | 16 | IDA, strace, Wireshark |
+| 12 | Ф11 | On-Demand / TND — profile + engine | 30 | IDA, msiextract, vpnagentd |
+| 13-14 | Ф12 | Per-App VPN — eBPF + D-Bus | 40 | IDA, llvm-objcopy, bpftool |
+| 15-16 | Ф13 | Certificate Auth deep dive | 40 | IDA, Ghidra |
+| 17 | Ф14 | VPN Profile XML schema | 16 | msiextract, xmllint |
+| 18 | Ф15 | VPNAPI SDK reverse | 16 | nm, c++filt, Doxygen |
+| 19 | Ф7-Ф9 | Dynamic split, posture, VPN API | 24 | IDA, BinDiff, Reko |
 
-**Итого: ~230 часов** (сравнимо с ANALYSIS_PLAN_PREDEPLOY: 240h)
+**Итого: ~358 часов** (~18 недель @ 20h/нед)
 
 ### Приоритет доставки для ioguard
 
@@ -502,7 +687,19 @@ struct cstp_frame {
 - Compression → проверить `src/network/compress.c` (S4)
 - Reconnect → расширить `src/core/worker.c` (S3)
 
-**Batch 3 (Ф6-Ф9, недели 10-12):** enterprise features, после MVP.
+**Batch 3 (Ф10-Ф11, недели 10-12):** auth + connectivity features.
+- External SSO → серверная генерация SAML redirect, token валидация
+- On-Demand/TND → VPN Profile schema, серверный push профиля
+
+**Batch 4 (Ф12-Ф13, недели 13-16):** enterprise features.
+- Per-App VPN → eBPF программы из acsockd, cgroup routing architecture
+- Certificate Auth → cert-group-map, multi-cert selection, SCEP proxy
+
+**Batch 5 (Ф14-Ф15, недели 17-18):** SDK + schema.
+- VPN Profile XML schema → полная XSD из Profile Editor MSI
+- VPNAPI SDK → public API, event model, CLI example flow
+
+**Batch 6 (Ф7-Ф9, неделя 19):** legacy features, deferred.
 
 ---
 
@@ -519,7 +716,13 @@ struct cstp_frame {
 | `RECONNECT_PROTOCOL.md` | Ф5 | Flow + таймауты |
 | `SAML_SSO_FLOW.md` | Ф6 | External browser flow |
 | `POSTURE_DAP.md` | Ф8 | Posture check protocol |
-| `VPNAPI_REFERENCE.md` | Ф9 | SDK API surface |
+| `VPNAPI_REFERENCE.md` | Ф15 | SDK API surface |
+| `EXTERNAL_SSO_FLOW.md` | Ф10 | SAML external browser — клиент+сервер |
+| `ON_DEMAND_TND.md` | Ф11 | On-Demand, Always-On, TND engine |
+| `VPN_PROFILE_SCHEMA.md` | Ф14 | Полная XML schema (из Profile Editor) |
+| `PER_APP_VPN_EBPF.md` | Ф12 | acsockd eBPF architecture |
+| `CERTIFICATE_AUTH_DEEP.md` | Ф13 | Server cert mapping + client cert selection |
+| `CSC_PACKAGE_INVENTORY.md` | — | Инвентаризация всех CSC 5.1.17 пакетов |
 
 ### Артефакты (в ocproto-research/scripts/)
 
@@ -554,7 +757,7 @@ struct cstp_frame {
 
 ### Общие
 
-- [ ] Все 13 пробелов (G1-G13) закрыты или обоснованно отложены
+- [ ] Все 21 пробел (G1-G21) закрыты или обоснованно отложены
 - [ ] CSTP wire format покрыт на 100% (все frame types)
 - [ ] AggAuth покрыт на 100% (все auth paths)
 - [ ] DTLS bootstrap верифицирован на wolfSSL (ioguard dev build)
@@ -572,3 +775,7 @@ struct cstp_frame {
 | ASAv 9.19 слишком старая для dynamic split tunnel features | Высокая | Добавить ASAv 9.24 в тестовый стенд |
 | Frida crashes lina (monolith, 113MB) | Средняя | Использовать GDB + breakpoints вместо Frida для lina |
 | AggAuth имеет undocumented Cisco-proprietary extensions | Средняя | Тестировать каждую ветку, документировать неизвестные элементы |
+| Profile Editor MSI может не содержать XSD напрямую | Средняя | Альтернатива: strings из PE-файлов Profile Editor, binwalk |
+| acsockd BPF программы обфусцированы или packed | Низкая | bpftool prog dump, llvm-objdump для BPF bytecode |
+| oqsprovider.so PQ suites не поддержаны в wolfSSL | Высокая | wolfSSL 5.8 имеет ML-KEM. Использовать liboqs standalone для остальных |
+| D-Bus IPC между vpnagentd и acsockd может быть закрытый протокол | Средняя | strace + dbus-monitor в runtime |

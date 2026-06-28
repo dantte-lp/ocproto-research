@@ -420,6 +420,46 @@ SAML endpoints (with Lua templates):
 - `/+CSCOE+/saml/sp/metadata` → `webvpn_auth/samlspmetadata.lua`
 - Cookies: `acSamlv2Token`, `acsamlcap`
 - Auth types: `saml-only`, `saml-cert`
+- SAML login URL format: `%s/+CSCOE+/saml/sp/login?ctx=%s&acsamlcap=v2`
+- Embedded browser fallback when client lacks external browser support
+
+**AggAuth State Machine** (P2-A, 240 functions):
+
+Context struct (~520 bytes): +64=request_type_id, +124=cert_received_flag, +352=aggauth_handle (8B),
++384=tunnel_group_ptr, +400=existing_session_ptr, +408=auth_info_ptr, +512=next_state_handler.
+
+State handlers (13):
+| Address | State | Trigger |
+|---------|-------|---------|
+| sub_1159B10 | INIT entry | `<config-auth type="init">` |
+| sub_1154260 | INIT-cert | Client has certificate |
+| sub_1157B40 | INIT-no-cert | No client certificate |
+| sub_1159530 | AUTH-REPLY entry | `<config-auth type="auth-reply">` |
+| sub_11517E0 | Regular auth (new) | Open AAA handle |
+| sub_11518D0 | Regular auth (existing) | Reuse AAA handle |
+| sub_1154BA0 | AAA request | Main AAA request/challenge |
+| sub_11555D0 | Multi-cert/SAML | Dispatch multi-cert or SAML |
+| sub_1158240 | Multi-cert auth | Multi-cert continuation |
+| sub_1156550 | SAML auth | SAML login/poll (4229B) |
+| sub_1153590 | TG invalid error | Invalid tunnel group |
+| sub_1153730 | Config changed error | Config version mismatch |
+| sub_1153320 | Auth timeout error | Auth attempt timed out |
+
+Tunnel group resolution (sub_1161C50, 853B) fallback chain:
+cert CN/SAN → direct name → URL extraction → cert alias mapping → iterate all TGs → "DefaultWEBVPNGroup"
+
+TG auth mode bitmask (tg+4168): bit0=cert_auth, bit1=cert_required, bit2=SAML, bit3=multi_cert.
+Nine tiny accessor functions (17-20B each): sub_3683F20 through sub_3684080.
+
+User lockout (sub_118D960): 600s auto-expire (non-NGFW), permanent in NGFW mode.
+Counter at user+228 (uint16), syslog 6113006.
+
+Error table at off_63B4080 (116 entries): 91=invalid TG, 96=unknown, 99=config changed, 107=auth timeout.
+
+**External SSO (external-sso.pkg, 5.7KB)** — fully reversed:
+- JS reads token from cookie `acSamlv2Token` or template `{{AC_SAML_TOKEN}}`
+- Platform routing: iOS/macOS→`anyconnectsso://`, Android→`anyconnect://`, Desktop→`http://localhost:29786/api/sso/TOKEN`
+- Client version from cookie `acvers`, hardcoded port 29786
 
 ### 3.4 Session Cookies
 
@@ -1129,6 +1169,56 @@ include/
 ├── config.h                 — Build config
 ```
 
+### 7.3 VPNAPI SDK Libraries (CSC 5.1.17)
+
+```
+lib/Linux/Intel_64/
+├── libvpnapi.a            5.6MB   Public VPN API (374K symbols)
+├── libvpncommon.a         15MB    Common lib (797K symbols)
+├── libvpncommoncrypt.a    1.6MB   Crypto (132K symbols)
+├── libacciscossl.so       19MB    CiscoSSL (OpenSSL fork)
+├── libacciscocrypto.so    6.9MB   CiscoSSL crypto
+├── fips.so                6.9MB   FIPS module
+├── oqsprovider.so         2.5MB   Post-Quantum OQS provider
+├── legacy.so              522KB   Legacy OpenSSL provider
+├── libboost_regex.so      396KB   Boost regex
+├── libaccurl.a            818KB   URL library
+├── openssl.cnf            577B    OpenSSL config
+```
+
+**Post-Quantum support (oqsprovider.so, ciscossl-3.3.5.8.3.63):**
+- KEM: ML-KEM-512/768/1024, Kyber512/768/1024, BIKE-L1/L3/L5, HQC-128/192/256, FrodoKEM
+- Hybrid KEM: SecP256r1+ML-KEM-768, X25519+ML-KEM-768
+- Signatures: ML-DSA-44/65/87, Falcon-512/1024, SPHINCS+
+
+### 7.4 CSC 5.1.17 Package Inventory
+
+| Package Type | Files | Size Range | Purpose |
+|-------------|-------|------------|---------|
+| webdeploy-k9.pkg | 5 platform variants | 112-188MB | VPN client + modules |
+| predeploy-k9 | .zip (win), .dmg (mac), .tgz (linux) | 72-190MB | Pre-install packages |
+| vpnapi | .zip (win), .tgz (linux/mac) | 18-129MB | SDK for 3rd-party clients |
+| external-sso | 1 cross-platform | 5.7KB | SAML browser SSO relay |
+| profileeditor-k9 | MSI (win) | 14MB | VPN Profile XML editor |
+| transforms | .zip (win) | 79KB | 9 MST install customization |
+
+**External SSO pkg** contents: `headinfo.txt` + `index.html` (JS app).
+**Profile Editor MSI** contains XSD schemas for VPN Profile XML.
+**Transforms**: disable-feedback, enable-fips, desktop-shortcut, reset-mtu, strict-cert, reboot-suppress, hide-addremove, lockdown.
+
+### 7.5 CLI Example (from VPNAPI SDK)
+
+`examples/cli/CLIClientMain.cpp` — minimal VPN client flow:
+1. `ClientIfc::attach()` → connect to vpnagentd
+2. `ClientIfc::connect(host)` → initiate AggAuth
+3. `UserPromptCB` callback → handle auth prompts
+4. `UserSubmit()` → send credentials
+5. `StateCB` → monitor vpnState transitions
+6. `ClientIfc::disconnect()` → graceful teardown
+
+Build: Clang 18 (Linux), Apple Clang 15 (macOS), MSVC v142 (Windows).
+Defines: `_WIN32 UNICODE _UNICODE _NOEXPORTDLL` (Windows only).
+
 ---
 
 ## 8. Feature Parity: ASA vs FTD vs ioguard Target
@@ -1160,6 +1250,14 @@ include/
 | RAVPN telemetry (protobuf) | No | Yes | Not applicable |
 | IKEv2 | Yes | Yes | Not planned (TLS-only) |
 | Post-quantum | Planned | Planned | wolfSSL ready |
+| On-Demand/Always-On | Profile push | Profile push | Profile push (S7) |
+| TND (Trusted Network) | Profile | Profile | Client-side |
+| Per-App VPN | eBPF (acsockd) | eBPF (acsockd) | cgroup/eBPF (future) |
+| External SSO/SAML | 9.7+ | 6.7+ | S7 planned |
+| Multi-cert auth | 9.14+ | 7.1+ | S7 planned |
+| SCEP enrollment | Yes | Yes | Not planned |
+| VPNAPI SDK compat | Official | Official | API-compatible (future) |
+| PQ TLS (ML-KEM) | CSC 5.1+ | CSC 5.1+ | wolfSSL + liboqs (future) |
 
 ---
 
@@ -1178,7 +1276,10 @@ All outputs on oel-lab-gui:
 ├── P0_AGGAUTH_CONNECT.md      — AggAuth + CONNECT + Response Generator (427 lines)
 ├── P0_DTLS_COOKIE_REKEY.md    — DTLS + Cookie + Rekey + Split + FW-RULE (332 lines)
 ├── P1_HEADEND_DOWNLOADER.md   — Headend/WebDeploy protocol (24.8KB, 56 functions)
-└── headend_downloader.jsonl   — Consolidated headend decompilation (204KB, 56 functions)
+├── headend_downloader.jsonl   — Consolidated headend decompilation (204KB, 56 functions)
+├── p2a_aggauth_deep.jsonl     — AggAuth deep dive: 159 functions (2.8MB)
+├── p2a_state_handlers.jsonl   — AggAuth state handlers: 81 functions (210KB)
+└── P2A_AGGAUTH_DEEP.md        — AggAuth analysis report (615 lines, 240 functions total)
 
 /share/asac/9.24.1/workspace/ida_dbs/
 ├── lina.i64               — ASAc 9.24.1 IDB (rebuilt, also at /tmp/lina_ida/lina on oel-lab-gui)
@@ -1323,6 +1424,23 @@ Key findings:
 - [ ] webvpn_content_router — aware_webvpn_content_router (0x3BBD450, 102KB): master URL router
 - [ ] webvpn_content_handler — 0x3A01DE0 (64KB): includes scan.xml HostScan processing
 
+### P2-A — AggAuth Deep Dive — COMPLETE (240 functions, 2 JSONL files)
+
+Artifacts: `p2a_aggauth_deep.jsonl` (159 fn, 2.8MB), `p2a_state_handlers.jsonl` (81 fn, 210KB)
+
+Key findings:
+- [x] AggAuth is a 13-state FSM, next-state pointer at context+512
+- [x] INIT handler (sub_1159B10, 596B): rate limiting → session sync check → cert/no-cert dispatch
+- [x] AUTH-REPLY (sub_1159530, 1493B): handle validation → config version → TG lookup → auth mode dispatch
+- [x] Tunnel group resolution (sub_1161C50, 853B): cert→name→URL→alias→iterate→"DefaultWEBVPNGroup"
+- [x] TG auth mode bitmask at tg+4168: bit0=cert, bit1=cert_required, bit2=SAML, bit3=multi_cert
+- [x] User lockout: 600s auto-expire (non-NGFW), permanent in NGFW mode, threshold configurable
+- [x] Session: hash table with 3-min expiry, session token at auth_result+136, session ID = int→decimal
+- [x] Error table: 116 entries at off_63B4080, codes 91/96/99/107 identified
+- [x] SAML: login URL `%s/+CSCOE+/saml/sp/login?ctx=%s&acsamlcap=v2`, embedded browser fallback
+- [x] AAA vtable at qword_6F6A448, service ID 0x33002 (208898)
+- [x] Source: aggregate_auth_api.c, aggregate_auth_xml_generator.c + 28 other files
+
 ### P2 — Next Targets
 - [ ] STRAP DH key exchange (sub_38B0870, sub_38B0780)
 - [ ] LZS compress/decompress engine (lzsc.c/lzsd.c via CTM)
@@ -1330,8 +1448,8 @@ Key findings:
 - [ ] DAP Lua engine (dap_create_Lua_instance, dap_select_records)
 - [ ] Session timeout FSM (idle, session, disconnect timeout handlers)
 - [ ] MTU calculation full pipeline (sub_38B39F0 + formula chain)
-- [ ] AggAuth INIT handler deep dive — cert processing, session creation (sub_1159B10)
-- [ ] AggAuth AUTH-REPLY — tunnel group selection logic (sub_1159530)
+- [ ] Certificate-group-map engine (webvpn__certificate_group_map_cb)
+- [ ] Profile push mechanism (/CACHE/stc/profiles/) — VPN Profile XML schema
 
 ### P2 — Future
 - [ ] SAML assertion validation (lasso_saml2_assertion_validate_audience)
